@@ -1,0 +1,2279 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alata&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <title>Simple Online Storage - Upload.biz</title>
+
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/icons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/icons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="194x194"
+      href="/icons/favicon-194x194.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/icons/android-chrome-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/icons/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#2d89ef" />
+    <meta name="msapplication-TileImage" content="/mstile-144x144.png" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <link
+      rel="stylesheet"
+      href="plugins/bootstrap/css/bootstrap.min.css"
+      type="text/css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="./plugins/wow/css/animate.css"
+      type="text/css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="./plugins/components-elegant-icons/css/elegant-icons.min.css"
+      type="text/css"
+    />
+
+    <link rel="stylesheet" href="./style-again.css" />
+
+    <!-- scripts -->
+
+    <script src="./plugins/jquery/jquery.min.js"></script>
+    <script src="./plugins/bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="./plugins/jquery.parallax-scroll/js/jquery.parallax-scroll.js"></script>
+
+    <script src="./plugins/jquery.appear/jquery.appear.js"></script>
+    <script src="./plugins/wow/js/wow.min.js"></script>
+    <script src="./plugins/countUp.js/countUp.min.js"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/tipso/1.0.8/tipso.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tipso/1.0.8/tipso.min.js"></script>
+  </head>
+  <body>
+    <noscript>
+      <div class="no-javascript">
+        <span class="material-icons vertical-middle">warning</span> Warning -
+        The site will not function with Javascript disabled
+      </div>
+    </noscript>
+
+    <div class="drag-container">
+      <div
+        style="
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          font-size: 60px;
+          width: 100%;
+          
+        "
+      >
+        Drop your files to begin uploading...
+      </div>
+    </div>
+
+    <div class="main-wrapper">
+      <div class="upper-wrapper">
+        <div
+          class="nav-item-logo"
+          style="text-align: center; padding-top: 20px; padding-bottom: 20px"
+        >
+          <a href="./index-again.html">
+            <div class="top__logo">
+              <img
+                class="slightBlur"
+                style="width: 185px"
+                src="/img/logo_small.png"
+                alt="logo"
+              />
+            </div>
+          </a>
+        </div>
+        <nav class="navbar" style="max-width: 1200px; margin: 0 auto">
+          <div class="nav-items">
+            <!-- 3rd -->
+            <div class="nav-item-tertiary">
+              <ul>
+                <li>
+                  <a href=""
+                    ><span style="vertical-align: middle" class="material-icons"
+                      >construction</span
+                    >
+                    Settings</a
+                  >
+                </li>
+                <li>
+                  <a href=""
+                    ><span style="vertical-align: middle" class="material-icons"
+                      >history</span
+                    >
+                    History</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <style>
+          .navbar a {
+            color: #fff;
+          }
+          .floatingIcon {
+            color: #fff;
+            pointer-events: none;
+          }
+        </style>
+
+        <div class="dropzone-wrapper">
+          <div class="blue-rectangle" style="position: relative">
+            <div
+              style="
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+               
+                
+              "
+            >
+              <div
+                class="floatingIcon"
+                style="position: absolute; bottom: 0; left: 10%"
+              >
+                <span
+                  class="material-icons"
+                  style="
+                    animation: icon-up-left 11s ease-in-out infinite;
+                    font-size: 22px;
+                  "
+                  >movie</span
+                >
+              </div>
+              <div
+                class="floatingIcon hide-small-screen"
+                style="position: absolute; bottom: 0; left: 20%"
+              >
+                <span
+                  class="material-icons"
+                  style="
+                    animation: icon-up 5s ease-in-out infinite;
+                    font-size: 37px;
+                  "
+                  >folder</span
+                >
+              </div>
+              <div
+                class="floatingIcon"
+                style="position: absolute; bottom: 0; left: 30%"
+              >
+                <span
+                  class="material-icons"
+                  style="
+                    animation: icon-up 9s ease-in-out infinite;
+                    font-size: 51px;
+                  "
+                  >photo</span
+                >
+              </div>
+              <div
+                class="floatingIcon hide-small-screen"
+                style="position: absolute; bottom: 0; left: 40%"
+              >
+                <span
+                  class="material-icons"
+                  style="
+                    animation: icon-up-left 9s ease-in-out infinite;
+                    font-size: 42px;
+                  "
+                  >inventory_2</span
+                >
+              </div>
+              <div
+                class="floatingIcon"
+                style="position: absolute; bottom: 0; left: 50%"
+              >
+                <span
+                  class="material-icons"
+                  style="
+                    animation: icon-up 7s ease-in-out infinite;
+                    font-size: 30px;
+                  "
+                  >markunread</span
+                >
+              </div>
+              <div
+                class="floatingIcon hide-small-screen"
+                style="position: absolute; bottom: 0; left: 60%"
+              >
+                <span
+                  class="material-icons"
+                  style="
+                    animation: icon-up 4s ease-in-out infinite;
+                    font-size: 41px;
+                  "
+                  >insert_drive_file</span
+                >
+              </div>
+              <div
+                class="floatingIcon"
+                style="position: absolute; bottom: 0; left: 70%"
+              >
+                <span
+                  class="material-icons"
+                  style="
+                    animation: icon-up-left 9s ease-in-out infinite;
+                    font-size: 34px;
+                  "
+                  >wb_cloudy</span
+                >
+              </div>
+              <div
+                class="floatingIcon hide-small-screen"
+                style="position: absolute; bottom: 0; left: 80%"
+              >
+                <span
+                  class="material-icons"
+                  style="
+                    animation: icon-up-left 6s ease-in-out infinite;
+                    font-size: 52px;
+                  "
+                  >picture_as_pdf</span
+                >
+              </div>
+              <div
+                class="floatingIcon"
+                style="position: absolute; bottom: 0; left: 90%"
+              >
+                <span
+                  class="material-icons"
+                  style="
+                    animation: icon-up 10s ease-in-out infinite;
+                    font-size: 67px;
+                  "
+                  >photo_library</span
+                >
+              </div>
+            </div>
+            <div class="upper-container">
+              <!-- 1st -->
+              <div class="image-card animated-icon">
+                <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                <lottie-player
+                  src="https://assets9.lottiefiles.com/packages/lf20_akdliwmw.json"
+                  background="transparent"
+                  speed="1"
+                  style="width: 50px; height: 50px"
+                  loop
+                  autoplay
+                ></lottie-player>
+              </div>
+              <!-- 2nd -->
+              <!-- 3rd -->
+              <div class="cloud-card animated-icon">
+                <lottie-player
+                  src="https://assets10.lottiefiles.com/packages/lf20_bexysule.json"
+                  background="transparent"
+                  speed="1"
+                  style="width: 50px; height: 50px"
+                  autoplay
+                  loop
+                ></lottie-player>
+              </div>
+            </div>
+            <div class="lower-container">
+              <div class="music-card animated-icon">
+                <lottie-player
+                  src="https://assets8.lottiefiles.com/packages/lf20_hspp2zot.json"
+                  background="transparent"
+                  speed="1"
+                  style="width: 50px; height: 50px"
+                  loop
+                  autoplay
+                ></lottie-player>
+              </div>
+              <div
+                style="position: relative; z-index: 2"
+                class="drop-main margin-center"
+              >
+                <div class="big-header-container margin-center">
+                  <div class="big-header animate__animated animate__fadeIn">
+                    <span class="hero-header">Secure, fast and easy</span>
+                    <span>file transfers</span>
+                  </div>
+                  <p
+                    class="
+                      big-header-para
+                      animate__animated animate__fadeIn animate__delay-1s
+                    "
+                  >
+                    - Upload a file below to get started -
+                  </p>
+                  <span
+                    class="material-icons"
+                    style="animation: float-no-shadow 2s ease-in-out infinite"
+                    >keyboard_arrow_down</span
+                  >
+                </div>
+              </div>
+              <div class="password-card animated-icon">
+                <lottie-player
+                  src="https://assets3.lottiefiles.com/packages/lf20_wwvq43n5.json"
+                  background="transparent"
+                  speed="1"
+                  style="width: 50px; height: 50px"
+                  autoplay
+                ></lottie-player>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- dropzone -->
+
+      <div
+        class="drop-area"
+        style="
+          max-width: 600px;
+          margin: 0 auto;
+          transform: translatey(400px);
+          overflow: hidden;
+          margin-bottom: 100rem;
+        "
+      >
+        <div class="border" style="text-align: center">
+          <div
+            class="drop-instructions"
+            style="padding-bottom: 10px; color: #4c9ca2"
+          >
+            Drag & Drop files here to upload
+          </div>
+          <button class="browseButton">Browse Files</button>
+          <style>
+            .browseButton {
+              padding: 15px;
+              background-color: white;
+              border: 1px solid #e3e3e3;
+              border-radius: 10px;
+              transition: background-color 1.5s ease;
+              width: auto;
+            }
+            .browseButton:hover {
+              background-color: #e3e3e3;
+            }
+            *:focus {
+              outline: 0 !important;
+            }
+          </style>
+        </div>
+        <!-- Files -->
+        <div class="file-main" style="display: none">
+          <h2 style="text-align: center; color: grey; padding: 30px">
+            <span class="material-icons" style="vertical-align: middle"
+              >queue</span
+            >
+            Your uploads
+          </h2>
+
+          <div class="file-container">
+            <div class="bottom"></div>
+          </div>
+
+          <!-- Finished -->
+          <div class="afterUpload-wrapper" style="display: none">
+            <div class="afterUpload-Container">
+              <div class="left-side">
+                <div class="success-message">
+                  <h3>You're done!</h3>
+                  <p style="width: 105%">
+                    Share your link with family and friends to allow them to
+                    download your file.
+                  </p>
+                  <p style="width: 105%">
+                    If you would like to edit your file in the future, then save
+                    the edit link in a safe place (don't share it with anyone
+                    else).
+                  </p>
+                </div>
+              </div>
+              <div class="right-side">
+                <div class="validation-link-container">
+                  <p>
+                    <span class="material-icons" style="vertical-align: middle"
+                      >link</span
+                    >
+                    Your Link
+                  </p>
+                  <div
+                    style="
+                      padding: 2px;
+                      margin: 0;
+                      border-radius: 5px 5px 0px 0px;
+                      border: 1px solid #e1e1e1;
+                      position: relative;
+                      padding-bottom: 0px;
+                      margin-bottom: 35px;
+                      border-bottom: 0;
+                    "
+                  >
+                    <input
+                      class="file-url select-on-click"
+                      readonly=""
+                      type="text"
+                      value="https://upload.biz/f/ABC123/file.exe"
+                      style="
+                        width: 100%;
+                        padding: 8px;
+                        border: 0;
+                        color: #7b7b7b;
+                        font-size: 16px;
+                        background: #fff;
+                        font-weight: 400;
+                      "
+                    /><button
+                      class="btn-blue copy-url"
+                      data-copytarget="file-url"
+                    >
+                      <span
+                        class="material-icons"
+                        style="margin-top: -5px; vertical-align: middle"
+                        >content_copy</span
+                      >
+                      Copy URL
+                    </button>
+                  </div>
+                </div>
+                <div class="validation-link-container">
+                  <p>
+                    <span class="material-icons" style="vertical-align: middle"
+                      >edit</span
+                    >
+                    Your Edit Link
+                  </p>
+                  <div
+                    style="
+                      padding: 2px;
+                      margin: 0;
+                      border-radius: 5px 5px 0px 0px;
+                      border: 1px solid #e1e1e1;
+                      position: relative;
+                      padding-bottom: 0px;
+                      border-bottom: 0;
+                    "
+                  >
+                    <input
+                      class="edit-url select-on-click"
+                      readonly=""
+                      type="text"
+                      value="https://upload.biz/edit/TieKib839Ovlsp"
+                      style="
+                        width: 100%;
+                        padding: 8px;
+                        border: 0;
+                        color: #7b7b7b;
+                        font-size: 16px;
+                        background: #fff;
+                        font-weight: 400;
+                      "
+                    /><button
+                      class="btn-blue copy-url"
+                      data-copytarget="edit-url"
+                    >
+                      <span
+                        class="material-icons"
+                        style="margin-top: -5px; vertical-align: middle"
+                        >content_copy</span
+                      >
+                      Copy Edit URL
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Progress -->
+          <div class="progress-placeholder" style="display: none">
+            <div class="progress-wrapper">
+              <div class="progress-container">
+                <div class="pause-icon">
+                  <button class="pause-btn" style="border: 0; background: none">
+                    <span
+                      class="material-icons pause"
+                      style="font-size: 54px; color: #d1d5db"
+                      >pause_circle_filled</span
+                    >
+                  </button>
+                </div>
+
+                <div
+                  class="progress-circle-container"
+                  style="
+                    position: relative;
+                    height: 114px;
+                    width: 114px;
+                    border-radius: 50%;
+                  "
+                >
+                  <svg
+                    width="120"
+                    height="120"
+                    style="
+                      transform: rotate(-90deg);
+                      margin-top: -3px;
+                      margin-left: -3px;
+                    "
+                  >
+                    <circle
+                      style=""
+                      stroke="#d1d5db"
+                      stroke-width="12"
+                      fill="transparent"
+                      r="52"
+                      cx="60"
+                      cy="60"
+                    ></circle>
+                    <circle
+                      class="progress-circle"
+                      stroke="#befc73"
+                      stroke-width="12"
+                      fill="transparent"
+                      r="52"
+                      cx="60"
+                      cy="60"
+                      style="
+                        stroke-dasharray: 326.726px, 326.726px;
+                        stroke-dashoffset: 326.726px;
+                      "
+                    ></circle>
+                  </svg>
+
+                  <div
+                    style="
+                      position: absolute;
+                      top: 35px;
+                      right: -2px;
+                      font-size: 20px;
+                      color: #93ce4c;
+                      text-align: center;
+                      width: 100%;
+                    "
+                  >
+                    <span class="percent">0%</span>
+
+                    <div
+                      style="
+                        font-size: 11px;
+                        position: absolute;
+                        width: 100%;
+                        color: #8f9399;
+                        right: 1px;
+                      "
+                    >
+                      <span class="speed">Not started</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="cross-icon">
+                  <button
+                    class="delete-file"
+                    style="border: 0; background: none"
+                  >
+                    <span
+                      class="material-icons cross"
+                      style="font-size: 54px; color: #d1d5db"
+                      >cancel</span
+                    >
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Preview/Pending -->
+          <div class="preview-container-placeholder" style="display: none">
+            <div class="preview-container">
+              <div class="preview-file-header">
+                <div
+                  class="file-icon-container"
+                  style="
+                    width: 44px;
+                    height: 44px;
+                    border-radius: 50%;
+                    padding-right: 0px;
+                    margin-right: 14px;
+                  "
+                >
+                  <span
+                    class="material-icons file-icon"
+                    style="
+                      font-size: 54px;
+                      padding: 0;
+                      margin: 0;
+                      margin-top: -5px;
+                      margin-left: -5px;
+                    "
+                    >description</span
+                  >
+                </div>
+                <div>
+                  <h3>
+                    <span class="file-title"
+                      ><a target="_blank" href="">Loading...</a></span
+                    >
+                  </h3>
+                  <span class="file-meta">53MB</span>
+                </div>
+
+                <div
+                  class="top-progress"
+                  style="
+                    display: none;
+                    position: absolute;
+                    left: 0;
+                    bottom: -3px;
+                    height: 3px;
+                    background: linear-gradient(-45deg, #d1d5db, #cacbcc);
+                    width: 100%;
+                  "
+                >
+                  <div
+                    style="
+                      position: absolute;
+                      left: 0;
+                      bottom: 0;
+                      height: 3px;
+                      background: linear-gradient(-45deg, #a6ff3b, #d9f9b2);
+                      width: 0%;
+                      transition: width 1s ease;
+                    "
+                  ></div>
+                </div>
+              </div>
+
+              <div class="slide-container">
+                <button
+                  style="margin-bottom: 20px; width: 100%"
+                  class="settings-btn btn-red"
+                >
+                  <span
+                    style="vertical-align: middle; margin-top: -2px"
+                    class="material-icons"
+                    >build_circle</span
+                  >
+                  Change file settings
+                </button>
+
+                <button class="upload-btn btn-green">
+                  <span
+                    style="vertical-align: middle; margin-top: -2px"
+                    class="material-icons"
+                    >upload</span
+                  >
+                  Upload This file
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--=================================-->
+    <!--=         Editor Design         =-->
+    <!--=================================-->
+    <section class="editor-design-two">
+      <div class="container">
+        <h2
+          class="heading-title text-center wow pixFadeUp"
+          data-wow-delay="0.4s"
+        >
+          Simple and quick way to add your files
+        </h2>
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="editure-feature-image-two">
+              <div class="animaated-elements">
+                <img
+                  src="img/animated/01.png"
+                  alt="main-bg"
+                  class="main-bg wow pixFade"
+                />
+                <img
+                  src="img/animated/02.png"
+                  alt="main-bg"
+                  class="elm-clock wow pixFadeLeft"
+                  data-wow-delay="0.5s"
+                />
+                <img
+                  src="img/animated/03.png"
+                  alt="elm-man"
+                  class="elm-man wow pixFadeRight"
+                  data-wow-delay="0.7s"
+                />
+                <img
+                  src="img/animated/04.png"
+                  alt="elm-table"
+                  class="elm-table wow pixFadeUp"
+                  data-wow-delay="0.1s"
+                />
+                <img
+                  src="img/animated/05.png"
+                  alt="main-bg"
+                  class="elm-sm-vase wow pixFade"
+                  data-wow-delay="0.9s"
+                />
+                <img
+                  src="img/animated/06.png"
+                  alt="elm-vase"
+                  class="elm-vase wow pixFadeLeft"
+                  data-wow-delay="0.9s"
+                />
+                <div class="elm-mass wow pixFadeDown" data-wow-delay="1s">
+                  <img
+                    src="img/animated/07.png"
+                    alt="massage"
+                    class="mass-img"
+                  />
+                </div>
+              </div>
+              <!-- /.animaated-elements -->
+            </div>
+          </div>
+          <!-- /.col-lg-6 -->
+          <div class="col-lg-6">
+            <div class="editor-content color-two">
+              <div class="section-title style-two color-two">
+                <h2 class="title wow pixFadeUp" data-wow-delay="0.3s">
+                  Upload Any file type
+                </h2>
+
+                <p class="wow pixFadeUp" data-wow-delay="0.2s">
+                  Secure and Fast File Upload has never <br />
+                  been easier
+                </p>
+              </div>
+
+              <div class="description wow pixFadeUp" data-wow-delay="0.7s">
+                <p>
+                  There are no restrictions on the type of file you can upload
+                  to our free filesharing platform. The only limit we put in
+                  place is a 5GB max filesize for free users and up to as much
+                  as 100GB for business users.
+                </p>
+
+                <a
+                  href="#"
+                  class="pix-btn color-two wow pixFadeUp"
+                  data-wow-delay="0.9s"
+                  >Discover More About Supported File Types</a
+                >
+              </div>
+            </div>
+            <!-- /.editor-content -->
+          </div>
+          <!-- /.col-lg-6 -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container -->
+    </section>
+    <!-- /.editor-design -->
+
+    <!--===================================-->
+    <!--=         Genera Informes         =-->
+    <!--===================================-->
+    <section class="genera-informes-two">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 pix-order-two">
+            <div class="genera-informes-content">
+              <div class="section-title style-two">
+                <h2 class="title wow pixFadeUp">
+                  Share Files <br />Anywhere in the world
+                </h2>
+
+                <p class="wow pixFadeUp burke" data-wow-delay="0.3s">
+                  Uploadfiles deploys a wide range of data centres located in
+                  various regions across the world
+                </p>
+              </div>
+              <!-- /.section-title style-two -->
+
+              <ul
+                class="list-items color-two wow pixFadeUp"
+                data-wow-delay="0.4s"
+              >
+                <li>Quick Access</li>
+                <li>Easily Manage</li>
+                <li>7/24h Support</li>
+              </ul>
+
+              <a
+                href="#"
+                class="pix-btn btn-outline-two wow pixFadeUp"
+                data-wow-delay="0.5s"
+                >Discover More About Our Network</a
+              >
+            </div>
+            <!-- /.genera-informes -->
+          </div>
+          <!-- /.col-lg-6 -->
+
+          <div class="col-lg-6">
+            <div class="animaated-elements-two">
+              <img
+                src="img/animated/1.png"
+                class="elm-one wow pixFade"
+                alt="informes"
+              />
+              <img
+                src="img/animated/2.png"
+                class="elm-two wow pixFadeDown"
+                alt="informes"
+              />
+              <img
+                src="img/animated/3.png"
+                class="elm-three wow pixFadeDown"
+                alt="informes"
+              />
+              <img
+                src="img/animated/4.png"
+                class="elm-four wow pixFadeRight"
+                alt="informes"
+              />
+            </div>
+          </div>
+          <!-- /.col-lg-6 -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container -->
+
+      <div class="scroll-circle wow pixFadeRight">
+        <img
+          src="img/background/circle2.png"
+          data-parallax='{"y" : 180}'
+          alt="circle"
+        />
+      </div>
+    </section>
+    <!-- /.genera-informes -->
+
+    <!--===========================-->
+    <!--=         Service         =-->
+    <!--===========================-->
+    <section class="featured-four">
+      <div class="container">
+        <div class="section-title text-center">
+          <h3 class="sub-title wow pixFadeUp">Our service</h3>
+          <h2 class="title wow pixFadeUp" data-wow-delay="0.3s">
+            Why you choose Our Site
+          </h2>
+        </div>
+        <!-- /.section-title -->
+
+        <div class="row justify-content-center">
+          <div class="col-lg-4 col-md-6">
+            <div
+              class="demopik-icon-box-wrapper style-four wow pixFadeLeft"
+              data-wow-delay="0.5s"
+            >
+              <div class="demopik-icon-box-icon">
+                <img src="./img/Feature/drag.svg" alt="" />
+              </div>
+              <div class="pixsass-icon-box-content">
+                <h3 class="pixsass-icon-box-title">Drag & Drop Friendly</h3>
+                <p>
+                  The full monty twit cracking goal Jeffrey lurgy chinwag bobby
+                  vagabond David, I don't want no agro what a load.!
+                </p>
+
+                <a href="#" class="more-btn"
+                  ><i class="ei ei-arrow_right"></i
+                ></a>
+
+                <svg
+                  class="layer"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  width="370px"
+                  height="270px"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    fill="rgb(253, 248, 248)"
+                    d="M-0.000,269.999 L-0.000,-0.001 L370.000,-0.001 C370.000,-0.001 347.889,107.879 188.862,112.181 C35.160,116.338 -0.000,269.999 -0.000,269.999 Z"
+                  />
+                </svg>
+              </div>
+            </div>
+            <!-- /.pixsass-box style-four -->
+          </div>
+          <!-- /.col-lg-4 col-md-6 -->
+
+          <div class="col-lg-4 col-md-6">
+            <div
+              class="demopik-icon-box-wrapper style-four wow pixFadeLeft"
+              data-wow-delay="0.7s"
+            >
+              <div class="demopik-icon-box-icon">
+                <img src="./img/Feature/bandwidth.svg" alt="" />
+              </div>
+              <div class="pixsass-icon-box-content">
+                <h3 class="pixsass-icon-box-title">Unlimited Bandwidth</h3>
+
+                <p>
+                  The full monty twit cracking goal Jeffrey lurgy chinwag bobby
+                  vagabond David, I don't want no agro what a load.!
+                </p>
+
+                <a href="#" class="more-btn"
+                  ><i class="ei ei-arrow_right"></i
+                ></a>
+              </div>
+
+              <svg
+                class="layer"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                width="370px"
+                height="270px"
+              >
+                <path
+                  fill-rule="evenodd"
+                  fill="rgb(253, 248, 248)"
+                  d="M-0.000,269.999 L-0.000,-0.001 L370.000,-0.001 C370.000,-0.001 347.889,107.879 188.862,112.181 C35.160,116.338 -0.000,269.999 -0.000,269.999 Z"
+                />
+              </svg>
+            </div>
+            <!-- /.pixsass-box style-four -->
+          </div>
+          <!-- /.col-lg-4 col-md-6 -->
+
+          <div class="col-lg-4 col-md-6">
+            <div
+              class="demopik-icon-box-wrapper style-four wow pixFadeLeft"
+              data-wow-delay="0.9s"
+            >
+              <div class="demopik-icon-box-icon">
+                <img src="./img/Feature/registration.svg" alt="" />
+              </div>
+              <div class="pixsass-icon-box-content">
+                <h3 class="pixsass-icon-box-title">No Registration Required</h3>
+                <p>
+                  The full monty twit cracking goal Jeffrey lurgy chinwag bobby
+                  vagabond David, I don't want no agro what a load.!
+                </p>
+
+                <a href="#" class="more-btn"
+                  ><i class="ei ei-arrow_right"></i
+                ></a>
+              </div>
+
+              <svg
+                class="layer"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                width="370px"
+                height="270px"
+              >
+                <path
+                  fill-rule="evenodd"
+                  fill="rgb(253, 248, 248)"
+                  d="M-0.000,269.999 L-0.000,-0.001 L370.000,-0.001 C370.000,-0.001 347.889,107.879 188.862,112.181 C35.160,116.338 -0.000,269.999 -0.000,269.999 Z"
+                />
+              </svg>
+            </div>
+            <!-- /.pixsass-box style-four -->
+          </div>
+          <!-- /.col-lg-4 col-md-6 -->
+
+          <div class="col-lg-4 col-md-6">
+            <div
+              class="demopik-icon-box-wrapper style-four wow pixFadeLeft"
+              data-wow-delay="0.9s"
+            >
+              <div class="demopik-icon-box-icon">
+                <img src="./img/Feature/spedd.svg" alt="" />
+              </div>
+              <div class="pixsass-icon-box-content">
+                <h3 class="pixsass-icon-box-title">Unlimited Speeds</h3>
+                <p>
+                  The full monty twit cracking goal Jeffrey lurgy chinwag bobby
+                  vagabond David, I don't want no agro what a load.!
+                </p>
+
+                <a href="#" class="more-btn"
+                  ><i class="ei ei-arrow_right"></i
+                ></a>
+              </div>
+
+              <svg
+                class="layer"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                width="370px"
+                height="270px"
+              >
+                <path
+                  fill-rule="evenodd"
+                  fill="rgb(253, 248, 248)"
+                  d="M-0.000,269.999 L-0.000,-0.001 L370.000,-0.001 C370.000,-0.001 347.889,107.879 188.862,112.181 C35.160,116.338 -0.000,269.999 -0.000,269.999 Z"
+                />
+              </svg>
+            </div>
+            <!-- /.pixsass-box style-four -->
+          </div>
+          <!-- /.col-lg-4 col-md-6 -->
+
+          <div class="col-lg-4 col-md-6">
+            <div
+              class="demopik-icon-box-wrapper style-four wow pixFadeLeft"
+              data-wow-delay="0.9s"
+            >
+              <div class="demopik-icon-box-icon">
+                <img src="./img/Feature/pass.svg" alt="" />
+              </div>
+              <div class="pixsass-icon-box-content">
+                <h3 class="pixsass-icon-box-title">Password Protected Files</h3>
+                <p>
+                  The full monty twit cracking goal Jeffrey lurgy chinwag bobby
+                  vagabond David, I don't want no agro what a load.!
+                </p>
+
+                <a href="#" class="more-btn"
+                  ><i class="ei ei-arrow_right"></i
+                ></a>
+              </div>
+
+              <svg
+                class="layer"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                width="370px"
+                height="270px"
+              >
+                <path
+                  fill-rule="evenodd"
+                  fill="rgb(253, 248, 248)"
+                  d="M-0.000,269.999 L-0.000,-0.001 L370.000,-0.001 C370.000,-0.001 347.889,107.879 188.862,112.181 C35.160,116.338 -0.000,269.999 -0.000,269.999 Z"
+                />
+              </svg>
+            </div>
+            <!-- /.pixsass-box style-four -->
+          </div>
+          <!-- /.col-lg-4 col-md-6 -->
+
+          <div class="col-lg-4 col-md-6">
+            <div
+              class="demopik-icon-box-wrapper style-four wow pixFadeLeft"
+              data-wow-delay="0.9s"
+            >
+              <div class="demopik-icon-box-icon">
+                <img src="./img/Feature/19.png" alt="" />
+              </div>
+              <div class="pixsass-icon-box-content">
+                <h3 class="pixsass-icon-box-title">One time download links</h3>
+                <p>
+                  The full monty twit cracking goal Jeffrey lurgy chinwag bobby
+                  vagabond David, I don't want no agro what a load.!
+                </p>
+
+                <a href="#" class="more-btn"
+                  ><i class="ei ei-arrow_right"></i
+                ></a>
+              </div>
+
+              <svg
+                class="layer"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                width="370px"
+                height="270px"
+              >
+                <path
+                  fill-rule="evenodd"
+                  fill="rgb(253, 248, 248)"
+                  d="M-0.000,269.999 L-0.000,-0.001 L370.000,-0.001 C370.000,-0.001 347.889,107.879 188.862,112.181 C35.160,116.338 -0.000,269.999 -0.000,269.999 Z"
+                />
+              </svg>
+            </div>
+            <!-- /.pixsass-box style-four -->
+          </div>
+          <!-- /.col-lg-4 col-md-6 -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container -->
+    </section>
+    <!-- /.featured -->
+
+    <!--==========================-->
+    <!--=         Countup        =-->
+    <!--==========================-->
+    <section class="countup">
+      <div class="bg-map" data-bg-image="img/background/map.png"></div>
+      <div class="container">
+        <div class="section-title color-two text-center">
+          <h3 class="sub-title wow pixFadeUp">Fun Facts</h3>
+          <h2 class="title wow pixFadeUp" data-wow-delay="0.3s">
+            We Always try to Understand<br />
+            Users expectation
+          </h2>
+        </div>
+        <!-- /.section-title -->
+
+        <div class="countup-wrapper">
+          <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="fun-fact wow pixFadeUp" data-wow-delay="0.3s">
+                <div class="counter">
+                  <h4 class="count" data-counter="14">14</h4>
+                  <span>K+</span>
+                </div>
+                <!-- /.counter -->
+
+                <p>Total Download</p>
+              </div>
+              <!-- /.fun-fact -->
+            </div>
+            <!-- /.col-lg-3 col-md-6 col-sm-6 -->
+
+            <div class="col-lg-3 col-md-6 col-sm-6">
+              <div
+                class="fun-fact color-two wow pixFadeUp"
+                data-wow-delay="0.5s"
+              >
+                <div class="counter">
+                  <h4 class="count" data-counter="13">13</h4>
+                  <span>M+</span>
+                </div>
+                <!-- /.counter -->
+                <p>Total Download</p>
+              </div>
+              <!-- /.fun-fact -->
+            </div>
+            <!-- /.col-lg-3 col-md-6 col-sm-6 -->
+
+            <div class="col-lg-3 col-md-6 col-sm-6">
+              <div
+                class="fun-fact color-three wow pixFadeUp"
+                data-wow-delay="0.7s"
+              >
+                <div class="counter">
+                  <h4 class="count" data-counter="244">244</h4>
+                  <span>+</span>
+                </div>
+                <!-- /.counter -->
+                <p>Total Download</p>
+              </div>
+              <!-- /.fun-fact -->
+            </div>
+            <!-- /.col-lg-3 col-md-6 col-sm-6 -->
+
+            <div class="col-lg-3 col-md-6 col-sm-6">
+              <div
+                class="fun-fact color-four wow pixFadeUp"
+                data-wow-delay="0.9s"
+              >
+                <div class="counter">
+                  <h4 class="count" data-counter="53">53</h4>
+                  <span>M+</span>
+                </div>
+                <!-- /.counter -->
+                <p>Total Download</p>
+              </div>
+              <!-- /.fun-fact -->
+            </div>
+            <!-- /.col-lg-3 col-md-6 col-sm-6 -->
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- /.countup-wrapper -->
+      </div>
+      <!-- /.container -->
+
+      <!-- <div class="scroll-circle wow pixFadeRight">
+        <img
+          src="img/background/circle3.png"
+          data-parallax='{"y" : -230}'
+          alt="circle"
+        />
+      </div> -->
+    </section>
+
+    <!-- svg wave before footer -->
+    <div class="wave">
+      <svg id="svg" viewBox="0 0 1440 400" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="gradient">
+            <stop offset="5%" stop-color="#edfcfd"></stop>
+            <stop offset="95%" stop-color="#e4ebec"></stop>
+          </linearGradient>
+        </defs>
+        <path
+          d="M 0,400 C 0,400 0,200 0,200 C 199.86666666666667,226.8 399.73333333333335,253.6 559,240 C 718.2666666666667,226.4 836.9333333333334,172.4 977,159 C 1117.0666666666666,145.6 1278.5333333333333,172.8 1440,200 C 1440,200 1440,400 1440,400 Z"
+          stroke="none"
+          stroke-width="0"
+          fill="url(#gradient)"
+          class="transition-all duration-300 ease-in-out delay-150"
+          transform="rotate(-180 720 200)"
+        ></path>
+      </svg>
+    </div>
+    <!-- footer -->
+    <div class="footer-container">
+      <div style="margin: 0 auto">
+        <div style="padding-bottom: 10px; text-align: center">
+          <img
+            class="footer-icon animate__animated animate__fadeIn"
+            style="
+              width: 50px;
+              animation: pulse-footer-icon 2s infinite;
+              border-radius: 15px;
+            "
+            src="/img/icon.png"
+            alt="logo"
+          />
+        </div>
+        <div style="text-align: center">Terms of Service - Privacy Policy</div>
+      </div>
+    </div>
+
+    <div
+      id="options-parent"
+      style="
+        display: none;
+        position: fixed;
+        background-color: rgba(0, 0, 0, 0.5);
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        margin: 0 auto;
+      "
+    >
+      <div
+        id="options-container"
+        style="
+          box-shadow: 0px 0px 15px #fff;
+          margin: 0 auto;
+          width: 80%;
+          height: 0%;
+          background: white;
+          transition: all 0.5s ease-in-out;
+          text-align: center;
+        "
+      >
+        <iframe
+          style="width: 100%; height: 100%; border: 0; display: none; border: 0"
+          id="options-frame"
+          src="https://upload.biz"
+        ></iframe>
+      </div>
+    </div>
+
+    <div style="display: none">
+      <div id="embedAudio"></div>
+
+      <form method="post" action="" id="uploadForm">
+        <input type="file" id="fileTarget" multiple />
+        <input type="submit" />
+      </form>
+    </div>
+
+    <script>
+      var introAnimation = 0;
+
+      /* Drag and drop */
+      var showDrag = false;
+      var timeout = -1;
+
+      $('html').bind('dragenter', function (e) {
+        e.preventDefault();
+
+        var dt = e.originalEvent.dataTransfer;
+
+        if (
+          dt.types &&
+          (dt.types.indexOf
+            ? dt.types.indexOf('Files') != -1
+            : dt.types.contains('Files'))
+        ) {
+          $('.drag-container').fadeIn();
+          showDrag = true;
+        }
+      });
+
+      $('html').bind('dragover', function (e) {
+        e.preventDefault();
+        showDrag = true;
+      });
+
+      $('html').bind('dragleave', function (e) {
+        showDrag = false;
+        clearTimeout(timeout);
+        timeout = setTimeout(function () {
+          if (!showDrag) {
+            $('.drag-container').fadeOut();
+          }
+        }, 200);
+      });
+
+      document.body.addEventListener('drop', drop, false);
+
+      function drop(e) {
+        e.stopPropagation();
+        e.preventDefault();
+
+        setTimeout(function () {
+          $('.drag-container').fadeOut();
+        }, 100);
+
+        const dt = e.dataTransfer;
+        const files = dt.files;
+
+        console.log(files);
+
+        for (var i = 0; i < files.length; i++) {
+          addFileToList(files[i]);
+        }
+      }
+
+      function playIntroAnimation() {
+        if (introAnimation == 1) {
+          return false;
+        }
+
+        introAnimation = 1;
+
+        $('.image-card').css(
+          'animation',
+          'hide-under-image 1s ease-in-out forwards'
+        );
+        $('.music-card').css(
+          'animation',
+          'hide-under-music 1s ease-in-out forwards'
+        );
+        $('.cloud-card').css(
+          'animation',
+          'hide-under-cloud 1s ease-in-out forwards'
+        );
+        $('.password-card').css(
+          'animation',
+          'hide-under-password 1s ease-in-out forwards'
+        );
+
+        setTimeout(function () {
+          $('.drop-area').css(
+            'animation',
+            'move-upload-up 1s ease-in-out forwards'
+          );
+          $('.blue-rectangle').css('filter', 'blur(1px)');
+          $('.big-header-container').fadeOut();
+        }, 250);
+
+        setTimeout(function () {
+          $('.image-card').remove();
+          $('.music-card').remove();
+          $('.cloud-card').remove();
+          $('.password-card').remove();
+
+          //setTimeout(function(){
+
+          $('.file-main').slideDown();
+
+          //}, 1000);
+
+          $('html, body').animate(
+            {
+              //scrollTop: ($(".file-main").offset().top - 200)
+            },
+            800
+          );
+        }, 1000);
+      }
+    </script>
+
+    <script>
+      $('.tipso').tipso();
+
+      function setProgress(percent, index) {
+        var circumference = 326.7256359733385;
+        var offset = circumference - (percent / 100) * circumference;
+
+        $('#file-' + index)
+          .find('.progress-circle')
+          .css('strokeDashoffset', offset);
+        $('#file-' + index)
+          .find('.percent')
+          .text(Math.round(percent) + '%');
+        $('#file-' + index)
+          .find('.top-progress')
+          .children('div')
+          .css('width', percent + '%');
+      }
+
+      /* Identify format */
+      var imageFormats = ['jpg', 'jpeg', 'gif', 'png', 'svg'];
+      var audioFormats = ['aac', 'wav', 'wma', 'mp3', 'm4a'];
+      var videoFormats = ['avi', 'mp4', 'wmv', 'mov', 'm4v', '3gp', 'flv'];
+      var codeFormats = ['dll', 'pl', 'php'];
+      var pdfFormats = ['pdf'];
+      var archiveFormats = ['zip', 'rar'];
+
+      function fileTypeIcon(extension) {
+        if (imageFormats.indexOf(extension) > -1) {
+          fileFormat = 'insert_photo';
+        } else if (codeFormats.indexOf(extension) > -1) {
+          fileFormat = 'code';
+        } else if (pdfFormats.indexOf(extension) > -1) {
+          fileFormat = 'picture_as_pdf';
+        } else if (audioFormats.indexOf(extension) > -1) {
+          fileFormat = 'library_music';
+        } else if (videoFormats.indexOf(extension) > -1) {
+          fileFormat = 'ondemand_video';
+        } else if (archiveFormats.indexOf(extension) > -1) {
+          fileFormat = 'unarchive';
+        } else {
+          fileFormat = 'task';
+        }
+
+        return fileFormat;
+      }
+
+      var fileElement, files;
+      var fileList = {};
+      var chunkSize = 1000000;
+      var threads = 6;
+      var xhr = {};
+
+      $('#uploadForm').submit(function (e) {
+        e.stopPropagation();
+
+        return false;
+      });
+
+      $('.border').click(function () {
+        $('#fileTarget').click();
+      });
+
+      $('#fileTarget').on('change', function () {
+        console.log(this);
+        fileElement = this;
+
+        for (var i = 0; i < this.files.length; i++) {
+          addFileToList(this.files[i]);
+        }
+
+        console.log('file change');
+      });
+
+      function isDuplicate(file) {
+        for (var i = 0; i < Object.keys(fileList).length; i++) {
+          if (
+            file.name == fileList[i].fileObject.name &&
+            file.size == fileList[i].fileObject.size &&
+            file.lastModified == fileList[i].fileObject.lastModified
+          ) {
+            return true;
+          }
+        }
+
+        return false;
+      }
+
+      /* 
+
+	Generic functions
+	
+*/
+
+      function currentTimestamp() {
+        return Math.floor(new Date().getTime() / 1000);
+      }
+
+      function currentTimestampMs() {
+        return new Date().getTime();
+      }
+
+      function bytesToSize(bytes) {
+        var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+        if (bytes == 0) return '0 Byte';
+        var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
+        return Math.round(bytes / Math.pow(1024, i), 2) + ' ' + sizes[i];
+      }
+
+      function formatTimeRemaining(seconds) {
+        var plural = '';
+
+        if (seconds >= 120) {
+          var minutes = Math.round(seconds / 60);
+
+          if (minutes > 1) {
+            plural = 's';
+          }
+
+          return minutes + ' Minute' + plural;
+        } else {
+          seconds = Math.round(seconds);
+
+          if (seconds > 1) {
+            plural = 's';
+          }
+
+          return seconds + ' second' + plural;
+        }
+      }
+
+      /*
+
+	Buttons
+
+*/
+
+      $('body').on('click', '.pause-btn', function () {
+        var index = $(this).closest('.file-parent').attr('data-index');
+
+        console.log('toggle pause - ' + index);
+
+        togglePause(index);
+      });
+
+      $('body').on('click', '.delete-file', function () {
+        var index = $(this).closest('.file-parent').attr('data-index');
+
+        console.log('toggle pause - ' + index);
+
+        deleteFile(index);
+      });
+
+      $('body').on('click', '.upload-btn', function () {
+        var index = $(this).closest('.file-parent').attr('data-index');
+
+        processChunks(index);
+      });
+
+      var frameAnimationActive = 0;
+
+      $('body').on('click', '.settings-btn', function () {
+        var index = $(this).closest('.file-parent').attr('data-index');
+
+        $('#options-frame').attr('src', fileList[index].editUrl + '?frame=1');
+
+        if (frameAnimationActive == 1) {
+          return false;
+        }
+
+        frameAnimationActive = 1;
+
+        $('#options-parent').fadeIn(function () {
+          $('#options-container').css('height', '100%');
+          $('#options-container').css('width', '80%');
+
+          setTimeout(function () {
+            $('#options-frame').fadeIn();
+            frameAnimationActive = 0;
+          }, 1000);
+        });
+      });
+
+      $('#options-parent').click(function () {
+        closeOptions();
+      });
+
+      var frameAnimationActive = 0;
+
+      function closeOptions() {
+        if (frameAnimationActive == 1) {
+          return false;
+        }
+
+        frameAnimationActive = 1;
+
+        //$(this).fadeOut(function(){
+
+        $('#options-container').animate({ height: '0' }, 100, function () {
+          setTimeout(function () {
+            $('#options-parent').fadeOut();
+          }, 200);
+        });
+
+        setTimeout(function () {
+          $('#options-container').css('padding', '0');
+          $('#options-container').css('height', '0%');
+          $('#options-frame').hide();
+          frameAnimationActive = 0;
+        }, 1000);
+
+        //});
+      }
+
+      $('body').on('click', '.copy-url', function () {
+        var index = $(this).closest('.file-parent').attr('data-index');
+        var targetInput = $(this).attr('data-copytarget');
+        var copyText = $('#file-' + index)
+          .find('.' + targetInput)
+          .attr('id', index + '-' + targetInput);
+
+        $(this).attr('style', 'animation:pulse-copy-button 2s forwards;');
+
+        $(this).on('animationend webkitAnimationEnd', function () {
+          $(this).attr('style', '');
+        });
+
+        document
+          .getElementById(index + '-' + targetInput)
+          .setSelectionRange(0, 5000);
+        document.getElementById(index + '-' + targetInput).select();
+        document.execCommand('copy');
+
+        console.log(copyText);
+      });
+
+      $('body').on('click', '.select-on-click', function () {
+        this.setSelectionRange(0, this.value.length);
+      });
+
+      function deleteFile(index) {
+        if (fileList[index].status == 'uploading') {
+          for (var xhrIndex in xhr) {
+            xhr[xhrIndex].abort();
+          }
+
+          fileList[index].status = 'deleted';
+          //processList();
+        }
+
+        fileList[index].status = 'deleted';
+        $('#file-' + index)
+          .next()
+          .slideUp();
+        $('#file-' + index).attr(
+          'class',
+          'file-parent animate__animated animate__fadeOutRightBig'
+        );
+
+        $('.divider').each(function () {
+          console.log('send next below');
+          console.log($(this).next());
+        });
+
+        setTimeout(function () {
+          $('#file-' + index).animate({ height: '0' }, function () {
+            $(this).remove();
+
+            if ($('.file-container').find('.file-parent').length < 1) {
+              $('.file-main').slideUp();
+            }
+          });
+        }, 500);
+      }
+
+      function togglePause(index) {
+        console.log('in togglePause() func for = ' + index);
+
+        if (fileList[index].status == 'paused') {
+          console.log('HEREEEEEEEEEEE');
+
+          fileList[index].status = 'uploading';
+          $('#file-' + index)
+            .find('.pause')
+            .text('pause_circle_filled');
+
+          processChunks(index);
+
+          return true;
+        }
+
+        if (fileList[index].status == 'uploading') {
+          fileList[index].status = 'paused';
+          $('#file-' + index)
+            .find('.pause')
+            .text('play_circle_filled');
+
+          return true;
+        }
+      }
+
+      /* 
+
+	XHR Event listeners 
+
+*/
+      function chunkUploadCompleted(event, index, chunkNumber) {
+        if (!fileList[index]) {
+          return false;
+        }
+
+        fileList[index].chunksMap[chunkNumber].status = 1;
+
+        console.log('Chunk is finished = ' + chunkNumber);
+
+        processChunks(index);
+      }
+
+      function updateProgress(event, index, chunkNumber) {
+        if (!fileList[index]) {
+          return false;
+        }
+
+        fileList[index].chunksMap[chunkNumber].downloadedBytes = event.loaded;
+
+        updateTotalProgress(index);
+      }
+
+      /* Upon completed upload */
+      function uploadComplete(index) {
+        if (fileList[index].status != 'complete') {
+          fileList[index].status = 'complete';
+
+          setTimeout(function () {
+            setProgress(100, index);
+            $('#file-' + index)
+              .find('.file-icon')
+              .text('check_circle');
+            $('#file-' + index)
+              .find('.speed')
+              .text('Completed');
+          }, 750);
+
+          setTimeout(function () {
+            $('#playSound').trigger('play');
+            $('#file-' + index)
+              .find('.progress-circle-container')
+              .css('animation', 'pulse-green-circle 2s forwards');
+            $('#file-' + index)
+              .find('.file-icon-container')
+              .addClass('pulse-header');
+          }, 1500);
+
+          setTimeout(function () {
+            $('#file-' + index)
+              .find('.slide-container')
+              .attr(
+                'class',
+                'slide-container animate__animated animate__fadeOutRightBig'
+              );
+          }, 3000);
+
+          setTimeout(function () {
+            var afterUpload = $('.afterUpload-wrapper').html();
+            $('#file-' + index)
+              .find('.top-progress')
+              .fadeIn();
+            $('#file-' + index)
+              .find('.preview-container')
+              .animate({ height: '380' });
+            $('#file-' + index)
+              .find('.slide-container')
+              .html(afterUpload);
+
+            $('#file-' + index)
+              .find('.file-url')
+              .attr('value', fileList[index].fileUrl);
+            $('#file-' + index)
+              .find('.edit-url')
+              .attr('value', 'https://upload.biz/edit/' + fileList[index].key);
+
+            $('#file-' + index)
+              .find('.slide-container')
+              .attr('class', 'slide-container');
+            $('#file-' + index)
+              .find('.slide-container')
+              .attr(
+                'class',
+                'slide-container animate__animated animate__fadeInLeftBig'
+              );
+          }, 4000);
+        }
+
+        //processList();
+      }
+
+      /*
+
+	Progress tracker
+	
+*/
+
+      function updateTotalProgress(index) {
+        var totalDownloaded = 0;
+
+        for (
+          var chunkNumber = 0;
+          chunkNumber < fileList[index].chunks;
+          chunkNumber++
+        ) {
+          if (
+            fileList[index].chunksMap[chunkNumber].downloadedBytes &&
+            fileList[index].chunksMap[chunkNumber].downloadedBytes > 0
+          ) {
+            totalDownloaded =
+              totalDownloaded +
+              fileList[index].chunksMap[chunkNumber].downloadedBytes;
+          }
+        }
+
+        if (fileList[index].status == 'paused') {
+          return false;
+        }
+
+        /* Get upload speed based on results with at least an X millisecond difference */
+        if (currentTimestampMs() - fileList[index].progressLastUpdated > 1000) {
+          var bytesPerMillisecond =
+            (totalDownloaded - fileList[index].bytesLastUpdated) /
+            (currentTimestampMs() - fileList[index].progressLastUpdated);
+          var kilobytesPerSecond = Math.round(
+            (bytesPerMillisecond * 1000) / 1024
+          );
+
+          var timeRemaining = formatTimeRemaining(
+            (fileList[index].fileObject.size - totalDownloaded) /
+              (bytesPerMillisecond * 1000)
+          );
+
+          var speed = bytesPerMillisecond;
+
+          fileList[index].progressLastUpdated = currentTimestampMs();
+          fileList[index].bytesLastUpdated = totalDownloaded;
+
+          $('#file-' + index)
+            .find('.speed')
+            .text(kilobytesPerSecond + ' KB/s');
+          $('#file-' + index)
+            .find('.timeleft')
+            .text(timeRemaining);
+        }
+
+        /* Display percent with 2 decimals */
+        var percentUploaded =
+          parseInt(
+            (totalDownloaded / fileList[index].fileObject.size) * 10000
+          ) / 100;
+
+        if (fileList[index].percentUploaded != percentUploaded) {
+          fileList[index].percentUploaded = percentUploaded;
+
+          $('#file-' + index)
+            .find('.percent')
+            .text(percentUploaded + '%');
+          setProgress(percentUploaded, index);
+        }
+
+        if (percentUploaded > 99) {
+          uploadComplete(index);
+        }
+      }
+
+      /*
+
+	Initialize XHR
+	
+*/
+
+      function uploadChunk(index, chunkNumber) {
+        /* Determine the range */
+        var startByte = chunkNumber * chunkSize;
+        var endByte = startByte + chunkSize;
+
+        if (endByte > fileList[index].fileObject.size) {
+          endByte = fileList[index].fileObject.size;
+        }
+
+        /* Begin the XHR request */
+        var xhrIndex = Object.keys(xhr).length;
+
+        xhr[xhrIndex] = new XMLHttpRequest();
+
+        xhr[xhrIndex].open('POST', '?chunkNumber=' + chunkNumber);
+
+        /* Upon completion */
+        xhr[xhrIndex].onload = function (event) {
+          chunkUploadCompleted(event, index, chunkNumber);
+          delete xhr[xhrIndex];
+        };
+
+        /* Upon percentage change */
+        xhr[xhrIndex].upload.onprogress = function (event) {
+          if (event.lengthComputable) {
+            updateProgress(event, index, chunkNumber);
+          }
+        };
+
+        xhr[xhrIndex].setRequestHeader('Cache-Control', 'no-cache');
+        xhr[xhrIndex].setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+        xhr[xhrIndex].setRequestHeader(
+          'X-File-Size',
+          fileList[index].fileObject.size
+        );
+        xhr[xhrIndex].setRequestHeader(
+          'Content-Type',
+          'application/octet-stream'
+        );
+
+        xhr[xhrIndex].send(
+          fileList[index].fileObject.slice(startByte, endByte)
+        );
+      }
+
+      /*
+
+	Chunk up the file and upload it according to set rules:
+	
+		- Chunk hasn't previously been uploaded
+		- Chunk isn't in the process of being uploaded
+		- There are {THREAD} amount of chunks being uploaded simultaneously
+		
+		
+	chunksMap status definitions:
+	
+		0 = Not uploaded
+		1 = Uploaded
+		2 = In the process of being uploaded
+	
+*/
+
+      function processChunks(index) {
+        var activeChunks = 0;
+
+        console.log('Status = ' + fileList[index].status);
+
+        /* Switch file card to progress if it's not visible yet */
+        if (fileList[index].progressCard != 1) {
+          fileList[index].progressCard = 1;
+          fileList[index].status = 'uploading';
+          var progressContainer = $('.progress-placeholder').html();
+
+          $('#file-' + index)
+            .find('.slide-container')
+            .attr(
+              'class',
+              'slide-container animate__animated animate__fadeOutRightBig'
+            );
+
+          setTimeout(function () {
+            $('#file-' + index)
+              .find('.top-progress')
+              .fadeIn();
+            $('#file-' + index)
+              .find('.preview-container')
+              .animate({ height: '280' });
+            $('#file-' + index)
+              .find('.slide-container')
+              .html(progressContainer);
+            $('#file-' + index)
+              .find('.slide-container')
+              .attr('class', 'slide-container');
+            $('#file-' + index)
+              .find('.slide-container')
+              .attr(
+                'class',
+                'slide-container animate__animated animate__fadeInLeftBig'
+              );
+          }, 500);
+        }
+
+        if (fileList[index].status == 'paused') {
+          console.log("Won't continue as file is PAUSED");
+          $('#file-' + index)
+            .find('.speed')
+            .text('Paused');
+          return false;
+        }
+
+        if (fileList[index].status == 'deleted') {
+          console.log("Won't continue as file is DELETED");
+          return false;
+        }
+
+        for (var i = 0; i < fileList[index].chunks; i++) {
+          /* Skip if chunk is already uploaded */
+          if (fileList[index].chunksMap[i].status == 1) {
+            continue;
+          }
+
+          /* Count chunks that are being actively uploaded */
+          if (fileList[index].chunksMap[i].status == 2) {
+            activeChunks++;
+          }
+
+          /* If more than {THREADS} chunks are being uploaded, then skip */
+          if (activeChunks >= threads) {
+            break;
+          }
+
+          /* If all checks pass and chunk isn't uploaded, then mark the chunk as being uploaded and upload it */
+          if (fileList[index].chunksMap[i].status === 0) {
+            console.log('starting chunk = ' + i);
+
+            fileList[index].chunksMap[i].status = 2;
+            activeChunks++;
+
+            uploadChunk(index, i);
+          }
+        }
+      }
+
+      /* 
+
+	Process the fileList
+
+*/
+      function processList() {
+        console.log('auto upload disabled');
+        return false;
+
+        var concurrentUploads = 0;
+
+        for (var i = 0; i < Object.keys(fileList).length; i++) {
+          if (fileList[i].status == 'uploading') {
+            concurrentUploads++;
+          }
+        }
+
+        for (var i = 0; i < Object.keys(fileList).length; i++) {
+          if (fileList[i].status == 'uploading') {
+            console.log("Not uploading as there's already an ongoing upload");
+            break;
+          }
+
+          if (fileList[i].status == 'queued') {
+            fileList[i].status = 'uploading';
+
+            $('#file-' + i)
+              .find('.queuedText')
+              .hide();
+            $('#file-' + i)
+              .find('.statusLine')
+              .show();
+
+            fileList[i].timestampStart = currentTimestamp();
+
+            processChunks(i);
+          }
+        }
+      }
+
+      /*
+
+	Catch file and add to object
+	
+*/
+
+      function addFileToList(file) {
+        $('#loadingFile').show();
+
+        if ($('#playSound').length < 1) {
+          $('#embedAudio').html(
+            '<audio id="playSound"><source src="/audio/short_complete.mp3" type="audio/mpeg"></audio> '
+          );
+          $('#playSound').prop('volume', 0.5);
+        }
+
+        /* Check for duplicate */
+        if (isDuplicate(file)) {
+          var dialogBox = confirm(
+            'This file is already in your upload list.\nAre you sure you want to continue?'
+          );
+
+          if (!dialogBox) {
+            $('#loadingFile').hide();
+            return false;
+          }
+        }
+
+        $.ajax({
+          url:
+            'http://upload.biz/ajax/?action=getKey&size=' +
+            file.size +
+            '&filename=' +
+            file.name,
+
+          success: function (data) {
+            playIntroAnimation();
+
+            var jsonData = JSON.parse(data);
+
+            console.log(data);
+
+            if (jsonData.code == '429') {
+              notificationBox(
+                domainDataJson.error,
+                'red',
+                'exclamation-triangle',
+                'freeze'
+              );
+              return false;
+            }
+
+            $('#loadingFile').hide();
+
+            /* Insert object */
+            var newFileObject = {};
+
+            newFileObject.fileObject = file;
+
+            newFileObject.fileId = jsonData.id;
+            newFileObject.key = jsonData.key;
+
+            newFileObject.fileUrl =
+              'https://upload.biz/f/' + jsonData.id + '/' + file.name;
+            newFileObject.editUrl = 'https://upload.biz/edit/' + jsonData.key;
+
+            newFileObject.status = 'queued';
+            newFileObject.uploadUrl = jsonData.uploadUrl;
+
+            newFileObject.timestampComplete = 0;
+            newFileObject.timestampStart = 0;
+            newFileObject.timestampAdded = currentTimestamp();
+
+            newFileObject.percentUploaded = 0;
+            newFileObject.bytesUploaded = 0;
+
+            newFileObject.progressLastUpdated = 0;
+            newFileObject.bytesLastUpdated = 0;
+
+            newFileObject.progressCard = 0;
+            newFileObject.completeCard = 0;
+
+            newFileObject.chunks = Math.ceil(file.size / chunkSize);
+            newFileObject.chunksMap = {};
+
+            for (var i = 0; i < newFileObject.chunks; i++) {
+              newFileObject.chunksMap[i] = {};
+              newFileObject.chunksMap[i].status = 0;
+            }
+
+            console.log(newFileObject);
+
+            var newIndex = Object.keys(fileList).length;
+            fileList[newIndex] = newFileObject;
+
+            /* 
+			
+				Add HTML for file card
+			
+			*/
+
+            var fileCount = $('.file-container').find('.file-parent').length;
+
+            $('.file-container').prepend(
+              "<div class='file-parent' data-index='" +
+                newIndex +
+                "' id='file-" +
+                newIndex +
+                "'></div>"
+            );
+            var previewContainer = $('.preview-container-placeholder').html();
+
+            $('#file-' + newIndex).css('opacity', 0);
+            $('#file-' + newIndex).html(previewContainer);
+            var fileCardHeight = $('#file-' + newIndex).height() + 54;
+
+            var animationSpeed = 1000;
+            var slideInTimeout = 1000;
+
+            if (fileCount < 1) {
+              animationSpeed = 0;
+              slideInTimeout = 1500;
+              console.log('heeere');
+            }
+
+            $('#file-' + newIndex).css('height', 0);
+            $('#file-' + newIndex).animate(
+              { height: fileCardHeight },
+              animationSpeed,
+              function () {
+                $(this).css('height', 'auto');
+
+                if (fileCount > 0) {
+                  $(
+                    "<div class='divider animate__animated animate__fadeIn animate__delay-1s' style='text-align: center'><span class='material-icons' style='font-size: 54px; color: #f0f0f0'>more_vert</span></div>"
+                  ).insertAfter(this);
+                }
+              }
+            );
+
+            /* Make card visible and have it slide in */
+            setTimeout(function () {
+              $('#file-' + newIndex).css('opacity', 1);
+              $('#file-' + newIndex).attr(
+                'class',
+                'file-parent animate__animated animate__slideInLeft'
+              );
+            }, slideInTimeout);
+
+            var fileExtension = file.name.split('.').pop().toLowerCase();
+
+            $('#file-' + newIndex)
+              .find('.file-title')
+              .children('a')
+              .text(file.name);
+            $('#file-' + newIndex)
+              .find('.file-title')
+              .children('a')
+              .attr('href', newFileObject.fileUrl);
+
+            $('#file-' + newIndex)
+              .find('.file-meta')
+              .text(
+                bytesToSize(file.size) + ' - ' + fileExtension.toUpperCase()
+              );
+            $('#file-' + newIndex)
+              .find('.file-icon')
+              .text(fileTypeIcon(fileExtension));
+
+            processList();
+          },
+        });
+      }
+    </script>
+
+    <script src="./js/myapp.js"></script>
+  </body>
+</html>

@@ -1,0 +1,1828 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alata&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <title>Simple Online Storage - Upload.biz</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: 'Alata', sans-serif;
+      }
+      *,
+      *::before,
+      *::after {
+        -webkit-box-sizing: inherit;
+        box-sizing: inherit;
+      }
+      html {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        font-size: 62.5%;
+      }
+      a {
+        text-decoration: none;
+      }
+      @media only screen and (max-width: 78.15em) {
+        html {
+          font-size: 50%;
+        }
+      }
+      @media only screen and (max-width: 500px) {
+        .animated-icon {
+          display: none;
+        }
+        .hide-small-screen {
+          display: none;
+        }
+      }
+      body {
+        font-weight: 400;
+        line-height: 1.6;
+        background-size: cover;
+        background-repeat: no-repeat;
+        min-height: calc(100vh - 2 * 4vw);
+        position: relative;
+        overflow-x: hidden;
+        background-color: white;
+      }
+      .animated-icon {
+        border-radius: 10px;
+      }
+      @keyframes gradient {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+      /* navbar */
+      .navbar {
+        padding-top: 1rem;
+      }
+      .main-wrapper {
+        max-width: 1000px;
+        min-height: 100vh;
+        margin: 0 auto;
+      }
+      .nav-items {
+        display: flex;
+        justify-content: space-between;
+        font-size: 1.6rem;
+        align-items: center;
+      }
+      .nav-items ul {
+        display: flex;
+        list-style-type: none;
+      }
+      .nav-items ul li {
+        color: #4338ca;
+      }
+      .nav-item-secondary ul li:not(:last-child),
+      .nav-item-tertiary ul li:not(:last-child) {
+        margin-right: 2rem;
+      }
+      /* dropzone */
+      .dropzone {
+        margin-top: 30px;
+        text-align: center;
+        padding-top: 20px;
+        padding-bottom: 30px;
+        height: 400px;
+        background: #5cb0f0;
+        box-shadow: 0px 0 0px #e5e7eb, 0px 0px 15px #afb2b3;
+      }
+      .cloud-card-container {
+        /* height: 70px; */
+        width: 70px;
+      }
+      button {
+        cursor: pointer;
+      }
+      .image-card {
+        align-items: center;
+        font-size: 1.5rem;
+        color: #4338ca;
+        background: #fff;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        animation: float 6s ease-in-out infinite;
+        background: #fff;
+      }
+      @keyframes float {
+        0% {
+          box-shadow: 0 5px 5px 0px rgba(60, 60, 60, 0.6);
+          transform: translatey(0px);
+        }
+        50% {
+          box-shadow: 0 15px 5px 0px rgba(60, 60, 60, 0.2);
+          transform: translatey(-10px);
+        }
+        100% {
+          box-shadow: 0 5px 5px 0px rgba(60, 60, 60, 0.6);
+          transform: translatey(0px);
+        }
+      }
+      @keyframes float-no-shadow {
+        0% {
+          transform: translatey(0px);
+        }
+        50% {
+          transform: translatey(-10px);
+        }
+        100% {
+          transform: translatey(0px);
+        }
+      }
+      .image-card img {
+        height: 40px;
+        /* height   : 70px;
+			width       : 130px; */
+        margin-right: 10px;
+      }
+      .upper-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      .lower-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      .big-header-container {
+        font-size: 3.5rem;
+        color: #fff;
+      }
+      .big-header-para {
+        font-size: 1.2rem;
+        font-weight: 400;
+      }
+      .big-header span {
+        display: block;
+      }
+      .hero-header {
+        line-height: 0.7;
+      }
+      .music-card {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        background: #fff;
+        transform: translateX(35px);
+        animation: float 6s ease-in-out infinite;
+      }
+      .cloud-card {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        background: #fff;
+        animation: float 6s ease-in-out infinite;
+      }
+      .music-card img,
+      .cloud-card img {
+        height: 50px;
+      }
+      .password-card {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        background: #fff;
+        animation: float 6s ease-in-out infinite;
+      }
+      .password-card img {
+        height: 50px;
+      }
+      .drop-area {
+        padding: 3rem;
+        border-radius: 10px;
+        font-size: 1.5rem;
+        border-radius: 20px;
+        background: #fff;
+        box-shadow: 20px 20px 60px #e5e7eb, -20px -20px 60px #ffffff;
+      }
+      .border {
+        background: linear-gradient(90deg, #7ee2e9 50%, transparent 50%),
+          linear-gradient(90deg, #7ee2e9 50%, transparent 50%),
+          linear-gradient(0deg, #7ee2e9 50%, transparent 50%),
+          linear-gradient(0deg, #7ee2e9 50%, transparent 50%);
+        background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+        background-size: 16px 2px, 16px 2px, 2px 16px, 2px 16px;
+        background-position: 0% 0%, 100% 100%, 0% 100%, 100% 0px;
+        border-radius: 5px;
+        padding: 60px;
+        animation: dash 5s linear infinite;
+        background-color: #ebfcfd;
+      }
+      @keyframes dash {
+        to {
+          background-position: 100% 0%, 0% 100%, 0% 0%, 100% 100%;
+        }
+      }
+      .drop-area-container {
+        border: 2px dashed #eee;
+        padding: 3rem;
+        border-radius: 10px;
+      }
+      /* Completed */
+      .after-tick-image {
+        height: 70px !important;
+      }
+      .after-copy-image,
+      .after-qr-image {
+        height: 20px;
+      }
+      .afterUpload-wrapper {
+        background: #fff;
+        box-shadow: 20px 20px 60px #e5e7eb, -20px -20px 60px #ffffff;
+        padding: 3rem;
+        border-radius: 20px;
+        font-size: 1.5rem;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      .afterUpload-Container {
+        display: flex;
+      }
+      .left-side {
+        position: relative;
+        flex-basis: 40%;
+        padding-right: 2rem;
+        text-align: center;
+      }
+      .left-side:after {
+        content: '';
+        background-color: #e5e7eb;
+        position: absolute;
+        width: 1px;
+        height: 180px;
+        top: 8px;
+        left: 100%;
+        display: block;
+      }
+      .success-message p {
+        font-size: 1.17rem;
+        padding-top: 1.1rem;
+        color: #9ca3af;
+      }
+      .right-side {
+        flex-basis: 60%;
+        margin-left: 3rem;
+      }
+      .validation-code-container {
+        display: flex;
+        /* justify-content: space-between; */
+        padding-bottom: 2rem;
+        padding-top: 1rem;
+      }
+      .validation-digit {
+        background-color: #e5e7eb;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        padding-top: 0.7rem;
+        padding-bottom: 0.7rem;
+        border-radius: 10px;
+      }
+      .validation-digit:not(:last-child) {
+        margin-right: 2rem;
+      }
+      .validation-link-container {
+        padding-bottom: 2rem;
+      }
+      .validation-link-container p {
+        color: #6b7280;
+      }
+      .validation-button-container {
+        display: flex;
+      }
+      .copy-btn {
+        display: flex;
+        align-items: center;
+        margin-right: 20px;
+        background-color: #d1fae5;
+      }
+      .qr-btn {
+        display: flex;
+        align-items: center;
+        background-color: #fef3c7;
+      }
+      .copy-btn span,
+      .qr-btn span {
+        font-size: 1.3rem;
+        margin-left: 1rem;
+      }
+      .copy-btn span {
+        color: #059669;
+      }
+      .qr-btn span {
+        color: #d97706;
+      }
+      .success-question {
+        padding-top: 1rem;
+      }
+      .success-message h3 {
+        font-size: 2rem;
+      }
+      .success-message h3,
+      .success-question a,
+      .success-question {
+        color: #4338ca;
+      }
+      .validate-text {
+        color: #6b7280;
+      }
+      .validation-button-container a {
+        /* background-color: #E5E7EB; */
+        padding: 0.7rem 1rem;
+        border-radius: 10px;
+      }
+      /* preview-card */
+      .preview-container {
+        /* display: none; */
+        margin-left: auto;
+        margin-right: auto;
+        background: #fff;
+        box-shadow: 20px 20px 60px #e5e7eb, -20px -20px 60px #ffffff;
+        padding: 1rem;
+        border-radius: 20px;
+      }
+      .preview-file-header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 2rem;
+      }
+      .preview-file-header img {
+        margin-right: 15px;
+      }
+      .password-container {
+        display: flex;
+        align-items: center;
+        margin-bottom: 2.2rem;
+        font-size: 1.5rem;
+      }
+
+      .lock,
+      .expired {
+        /* color: #d1d5db; */
+        /* height: 30px !important; */
+        font-size: 3.4rem;
+        color: #d1d5db;
+        margin-right: 1rem;
+      }
+
+      .expiry-container {
+        display: flex;
+        align-items: center;
+        margin-bottom: 3.5rem;
+        font-size: 1.5rem;
+      }
+      .expiry-select-one {
+        margin-left: 1.5rem;
+        /* margin-right: r 1.5rem; */
+      }
+      .light {
+        color: gray;
+        font-size: 1rem;
+      }
+      .password-text {
+        display: inline-block;
+        border-radius: 5px;
+        border: none;
+        height: 25px;
+        margin-left: 1rem;
+        display: flex;
+        flex: 1;
+        border: 1px solid #d9d9d9;
+        padding: 25px;
+        box-shadow: 0px 0 0px #e5e7eb, 0px 0px 15px #afb2b3;
+      }
+      .password-text:focus {
+        outline: none;
+      }
+      .upload-btn {
+        width: 100%;
+        background: #4338ca;
+        border: none;
+        color: #fff;
+        border-radius: 15px;
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+        cursor: pointer;
+      }
+      .password-container img,
+      .expiry-container img {
+        height: 30px;
+        margin-right: 1rem;
+      }
+      .password-container p {
+        color: #4338ca;
+        font-size: 1.4rem;
+      }
+      .expiry-container p {
+        color: #4338ca;
+        font-size: 1.4rem;
+      }
+      /* .expiry-container img {
+        height: 15px;
+        margin-right: 1rem;
+      } */
+      .preview-file-header img {
+        height: 40px;
+      }
+      .main-select-one {
+        margin-left: 2rem;
+        margin-right: 2rem;
+      }
+      .file-title {
+        font-size: 1.5rem;
+        color: #4b5563;
+      }
+      /* select */
+      .expiry-select-one,
+      .expiry-select-two {
+        /* width      : 200px;s */
+        margin: 0 auto;
+        font-family: arial;
+      }
+      select {
+        width: 100%;
+        height: 34px;
+        line-height: 24px;
+        border: 1px solid #e6e6e6;
+        border-radius: 2px;
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        padding: 5px 12px;
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        color: #444;
+        transition: all 0.3s ease-in-out;
+        -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+      }
+      select:hover,
+      select:focus {
+        border-color: #c6c6c6;
+      }
+      .select-wrapper {
+        float: left;
+        border: 1px solid #d4d4d4;
+        background: #fff;
+        cursor: pointer;
+        position: relative;
+        -moz-border-radius: 2px;
+        -webkit-border-radius: 2px;
+        -ms-border-radius: 2px;
+        -o-border-radius: 2px;
+        border-radius: 2px;
+      }
+      .select-wrapper,
+      .select-wrapper select {
+        width: 100%;
+        font-size: 14px;
+        height: 34px;
+        line-height: 30px;
+        color: #262626;
+      }
+      .select-wrapper:hover,
+      .select-wrapper:focus {
+        border-color: #a4a4a4;
+      }
+      .select-wrapper .holder {
+        display: block;
+        margin: 0 35px 0 12px;
+        white-space: nowrap;
+        overflow: hidden;
+        *overflow: inherit;
+        cursor: pointer;
+        position: relative;
+        z-index: 1;
+        color: #262626;
+        height: 34px;
+        line-height: 32px;
+      }
+      .select-wrapper select {
+        margin: 0;
+        position: absolute;
+        z-index: 2;
+        cursor: pointer;
+        outline: none;
+        opacity: 0;
+        height: 34px;
+        line-height: 32px;
+      }
+      .selectarrow,
+      .select-wrapper:before {
+        content: '';
+        position: absolute;
+        top: 13px;
+        right: 12px;
+        border-width: 8px 5px 0 5px;
+        border-style: solid;
+        border-color: #909090 transparent transparent transparent;
+        width: 0;
+        height: 0;
+      }
+      .selectbox:hover .selectarrow,
+      .selectbox:focus .selectarrow,
+      .select-wrapper:hover:before,
+      .select-wrapper:focus:before {
+        border-width: 0 5px 8px 5px;
+        border-style: solid;
+        border-color: transparent transparent #909090 transparent;
+      }
+      .or {
+        margin-right: 1rem;
+        margin-left: 1rem;
+        color: #777;
+      }
+      /* Progress */
+      .progress-wrapper {
+        margin: 0 auto;
+        background: #fff;
+        box-shadow: 20px 20px 60px #e5e7eb, -20px -20px 60px #ffffff;
+        border-radius: 20px;
+        padding: 3.5rem;
+      }
+      .progress-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .my-file-title {
+        padding-top: 1rem;
+        text-align: center !important;
+      }
+      .light {
+        color: #777;
+      }
+      .rect-auto,
+      .c100.p51 .slice,
+      .c100.p52 .slice,
+      .c100.p53 .slice,
+      .c100.p54 .slice,
+      .c100.p55 .slice,
+      .c100.p56 .slice,
+      .c100.p57 .slice,
+      .c100.p58 .slice,
+      .c100.p59 .slice,
+      .c100.p60 .slice,
+      .c100.p61 .slice,
+      .c100.p62 .slice,
+      .c100.p63 .slice,
+      .c100.p64 .slice,
+      .c100.p65 .slice,
+      .c100.p66 .slice,
+      .c100.p67 .slice,
+      .c100.p68 .slice,
+      .c100.p69 .slice,
+      .c100.p70 .slice,
+      .c100.p71 .slice,
+      .c100.p72 .slice,
+      .c100.p73 .slice,
+      .c100.p74 .slice,
+      .c100.p75 .slice,
+      .c100.p76 .slice,
+      .c100.p77 .slice,
+      .c100.p78 .slice,
+      .c100.p79 .slice,
+      .c100.p80 .slice,
+      .c100.p81 .slice,
+      .c100.p82 .slice,
+      .c100.p83 .slice,
+      .c100.p84 .slice,
+      .c100.p85 .slice,
+      .c100.p86 .slice,
+      .c100.p87 .slice,
+      .c100.p88 .slice,
+      .c100.p89 .slice,
+      .c100.p90 .slice,
+      .c100.p91 .slice,
+      .c100.p92 .slice,
+      .c100.p93 .slice,
+      .c100.p94 .slice,
+      .c100.p95 .slice,
+      .c100.p96 .slice,
+      .c100.p97 .slice,
+      .c100.p98 .slice,
+      .c100.p99 .slice,
+      .c100.p100 .slice {
+        clip: rect(auto, auto, auto, auto);
+      }
+      .pie,
+      .c100 .bar,
+      .c100.p51 .fill,
+      .c100.p52 .fill,
+      .c100.p53 .fill,
+      .c100.p54 .fill,
+      .c100.p55 .fill,
+      .c100.p56 .fill,
+      .c100.p57 .fill,
+      .c100.p58 .fill,
+      .c100.p59 .fill,
+      .c100.p60 .fill,
+      .c100.p61 .fill,
+      .c100.p62 .fill,
+      .c100.p63 .fill,
+      .c100.p64 .fill,
+      .c100.p65 .fill,
+      .c100.p66 .fill,
+      .c100.p67 .fill,
+      .c100.p68 .fill,
+      .c100.p69 .fill,
+      .c100.p70 .fill,
+      .c100.p71 .fill,
+      .c100.p72 .fill,
+      .c100.p73 .fill,
+      .c100.p74 .fill,
+      .c100.p75 .fill,
+      .c100.p76 .fill,
+      .c100.p77 .fill,
+      .c100.p78 .fill,
+      .c100.p79 .fill,
+      .c100.p80 .fill,
+      .c100.p81 .fill,
+      .c100.p82 .fill,
+      .c100.p83 .fill,
+      .c100.p84 .fill,
+      .c100.p85 .fill,
+      .c100.p86 .fill,
+      .c100.p87 .fill,
+      .c100.p88 .fill,
+      .c100.p89 .fill,
+      .c100.p90 .fill,
+      .c100.p91 .fill,
+      .c100.p92 .fill,
+      .c100.p93 .fill,
+      .c100.p94 .fill,
+      .c100.p95 .fill,
+      .c100.p96 .fill,
+      .c100.p97 .fill,
+      .c100.p98 .fill,
+      .c100.p99 .fill,
+      .c100.p100 .fill {
+        position: absolute;
+        border: 0.08em solid #4338ca;
+        width: 0.84em;
+        height: 0.84em;
+        clip: rect(0em, 0.5em, 1em, 0em);
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+        border-radius: 50%;
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      .pie-fill,
+      .c100.p51 .bar:after,
+      .c100.p51 .fill,
+      .c100.p52 .bar:after,
+      .c100.p52 .fill,
+      .c100.p53 .bar:after,
+      .c100.p53 .fill,
+      .c100.p54 .bar:after,
+      .c100.p54 .fill,
+      .c100.p55 .bar:after,
+      .c100.p55 .fill,
+      .c100.p56 .bar:after,
+      .c100.p56 .fill,
+      .c100.p57 .bar:after,
+      .c100.p57 .fill,
+      .c100.p58 .bar:after,
+      .c100.p58 .fill,
+      .c100.p59 .bar:after,
+      .c100.p59 .fill,
+      .c100.p60 .bar:after,
+      .c100.p60 .fill,
+      .c100.p61 .bar:after,
+      .c100.p61 .fill,
+      .c100.p62 .bar:after,
+      .c100.p62 .fill,
+      .c100.p63 .bar:after,
+      .c100.p63 .fill,
+      .c100.p64 .bar:after,
+      .c100.p64 .fill,
+      .c100.p65 .bar:after,
+      .c100.p65 .fill,
+      .c100.p66 .bar:after,
+      .c100.p66 .fill,
+      .c100.p67 .bar:after,
+      .c100.p67 .fill,
+      .c100.p68 .bar:after,
+      .c100.p68 .fill,
+      .c100.p69 .bar:after,
+      .c100.p69 .fill,
+      .c100.p70 .bar:after,
+      .c100.p70 .fill,
+      .c100.p71 .bar:after,
+      .c100.p71 .fill,
+      .c100.p72 .bar:after,
+      .c100.p72 .fill,
+      .c100.p73 .bar:after,
+      .c100.p73 .fill,
+      .c100.p74 .bar:after,
+      .c100.p74 .fill,
+      .c100.p75 .bar:after,
+      .c100.p75 .fill,
+      .c100.p76 .bar:after,
+      .c100.p76 .fill,
+      .c100.p77 .bar:after,
+      .c100.p77 .fill,
+      .c100.p78 .bar:after,
+      .c100.p78 .fill,
+      .c100.p79 .bar:after,
+      .c100.p79 .fill,
+      .c100.p80 .bar:after,
+      .c100.p80 .fill,
+      .c100.p81 .bar:after,
+      .c100.p81 .fill,
+      .c100.p82 .bar:after,
+      .c100.p82 .fill,
+      .c100.p83 .bar:after,
+      .c100.p83 .fill,
+      .c100.p84 .bar:after,
+      .c100.p84 .fill,
+      .c100.p85 .bar:after,
+      .c100.p85 .fill,
+      .c100.p86 .bar:after,
+      .c100.p86 .fill,
+      .c100.p87 .bar:after,
+      .c100.p87 .fill,
+      .c100.p88 .bar:after,
+      .c100.p88 .fill,
+      .c100.p89 .bar:after,
+      .c100.p89 .fill,
+      .c100.p90 .bar:after,
+      .c100.p90 .fill,
+      .c100.p91 .bar:after,
+      .c100.p91 .fill,
+      .c100.p92 .bar:after,
+      .c100.p92 .fill,
+      .c100.p93 .bar:after,
+      .c100.p93 .fill,
+      .c100.p94 .bar:after,
+      .c100.p94 .fill,
+      .c100.p95 .bar:after,
+      .c100.p95 .fill,
+      .c100.p96 .bar:after,
+      .c100.p96 .fill,
+      .c100.p97 .bar:after,
+      .c100.p97 .fill,
+      .c100.p98 .bar:after,
+      .c100.p98 .fill,
+      .c100.p99 .bar:after,
+      .c100.p99 .fill,
+      .c100.p100 .bar:after,
+      .c100.p100 .fill {
+        -webkit-transform: rotate(180deg);
+        -moz-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        -o-transform: rotate(180deg);
+        transform: rotate(180deg);
+      }
+      .c100 {
+        position: relative;
+        font-size: 120px;
+        width: 1em;
+        height: 1em;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+        border-radius: 50%;
+        float: left;
+        /* margin: 0 0.1em 0.1em 0; */
+        background-color: #d1d5db;
+      }
+      .c100 *,
+      .c100 *:before,
+      .c100 *:after {
+        -webkit-box-sizing: content-box;
+        -moz-box-sizing: content-box;
+        box-sizing: content-box;
+      }
+      .c100.center {
+        float: none;
+        margin: 0 auto;
+      }
+      .c100.big {
+        font-size: 140px;
+      }
+      .c100.small {
+        font-size: 80px;
+      }
+      .c100 > span {
+        position: absolute;
+        width: 100%;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 5em;
+        line-height: 4.5em;
+        font-size: 0.2em;
+        color: #4338ca;
+        display: block;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-transition-property: all;
+        -moz-transition-property: all;
+        -o-transition-property: all;
+        transition-property: all;
+        -webkit-transition-duration: 0.2s;
+        -moz-transition-duration: 0.2s;
+        -o-transition-duration: 0.2s;
+        transition-duration: 0.2s;
+        -webkit-transition-timing-function: ease-out;
+        -moz-transition-timing-function: ease-out;
+        -o-transition-timing-function: ease-out;
+        transition-timing-function: ease-out;
+      }
+      .c100 > p {
+        position: absolute;
+        width: 100%;
+        z-index: 1;
+        left: 44px;
+        top: 80px;
+        width: 5em;
+        font-size: 0.09em;
+        color: #9ca3af;
+      }
+      .c100:after {
+        position: absolute;
+        top: 0.08em;
+        left: 0.08em;
+        display: block;
+        content: ' ';
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+        border-radius: 50%;
+        background-color: white;
+        width: 0.84em;
+        height: 0.84em;
+        -webkit-transition-property: all;
+        -moz-transition-property: all;
+        -o-transition-property: all;
+        transition-property: all;
+        -webkit-transition-duration: 0.2s;
+        -moz-transition-duration: 0.2s;
+        -o-transition-duration: 0.2s;
+        transition-duration: 0.2s;
+        -webkit-transition-timing-function: ease-in;
+        -moz-transition-timing-function: ease-in;
+        -o-transition-timing-function: ease-in;
+        transition-timing-function: ease-in;
+      }
+      .c100 .slice {
+        position: absolute;
+        width: 1em;
+        height: 1em;
+        clip: rect(0em, 1em, 1em, 0.5em);
+      }
+      .c100.p1 .bar {
+        -webkit-transform: rotate(3.6deg);
+        -moz-transform: rotate(3.6deg);
+        -ms-transform: rotate(3.6deg);
+        -o-transform: rotate(3.6deg);
+        transform: rotate(3.6deg);
+      }
+      .c100.p30 .bar {
+        -webkit-transform: rotate(108deg);
+        -moz-transform: rotate(108deg);
+        -ms-transform: rotate(108deg);
+        -o-transform: rotate(108deg);
+        transform: rotate(108deg);
+      }
+      /* navbar link */
+      .navbar a {
+        text-decoration: none;
+        display: inline-block;
+        position: relative;
+      }
+      .navbar a:after {
+        background: none repeat scroll 0 0 transparent;
+        bottom: -3px;
+        content: '';
+        display: block;
+        height: 2px;
+        left: 50%;
+        position: absolute;
+        background: #5cb1f1;
+        transition: width 0.3s ease 0s, left 0.3s ease 0s;
+        width: 0;
+      }
+      .navbar a:hover:after {
+        width: 100%;
+        left: 0;
+      }
+      /* Generic classes */
+      .margin-center {
+        margin: 0 auto;
+      }
+      @keyframes icon-up {
+        0% {
+          transform: translatey(100px) rotate(-25deg);
+          opacity: 0.5;
+          font-size: 32px;
+        }
+        100% {
+          transform: translatey(-500px) rotate(25deg);
+          opacity: 0;
+          font-size: 70px;
+        }
+      }
+      @keyframes icon-up-left {
+        0% {
+          transform: translatey(100px) rotate(25deg);
+          opacity: 0.5;
+        }
+        100% {
+          transform: translatey(-500px) rotate(-25deg);
+          opacity: 0;
+        }
+      }
+      /* Footer */
+      .wave {
+        height: 100px;
+        -webkit-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        transform: rotate(180deg);
+        position: relative;
+        z-index: -1;
+      }
+      .footer-container {
+        margin-top: -15rem;
+        font-size: 1.8rem;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        background-color: #7f00ff;
+        background-image: -webkit-gradient(
+          linear,
+          left top,
+          right top,
+          from(#7f00ff),
+          to(#e100ff)
+        );
+        background-image: linear-gradient(to right, #edfcfd, #e4ebec);
+        color: #5cb1f1;
+        padding: 3rem;
+      }
+      .footer-item {
+        list-style-type: none;
+      }
+      .footer-para {
+        font-size: 1.6rem;
+        width: 40%;
+        line-height: 2;
+        margin-bottom: 2rem;
+      }
+      .footer-title {
+        color: #5cb1f1;
+        font-size: 1.6rem;
+        font-weight: 600;
+        /* text-align: center; */
+      }
+      .footer-title:hover {
+        text-decoration: none !important;
+      }
+      @media only screen and (min-width: 700px) {
+        .footer-container {
+          -webkit-box-orient: horizontal;
+          -webkit-box-direction: normal;
+          -ms-flex-direction: row;
+          flex-direction: row;
+          font-size: 1.3rem;
+          text-align: left;
+        }
+      }
+      @media only screen and (min-width: 1000px) {
+        .footer-para {
+          font-size: 1.4rem;
+          width: 30%;
+        }
+      }
+      @media only screen and (min-width: 1300px) {
+        .footer-title {
+          font-size: 1.5rem;
+          text-align: left;
+        }
+      }
+      .footer-list-item {
+        line-height: 2;
+        color: #5cb1f1;
+      }
+      .footer-list-item:hover {
+        text-decoration: underline;
+        cursor: pointer;
+      }
+      .donate {
+        background-color: #232526;
+        background-image: -webkit-gradient(
+          linear,
+          left top,
+          right top,
+          from(#232526),
+          color-stop(51%, #414345),
+          to(#232526)
+        );
+        background-image: -o-linear-gradient(
+          left,
+          #232526 0%,
+          #414345 51%,
+          #232526 100%
+        );
+        background-image: linear-gradient(
+          to right,
+          #232526 0%,
+          #414345 51%,
+          #232526 100%
+        );
+      }
+      .donate {
+        font-style: italic;
+        padding: 1rem 2rem;
+        text-align: center;
+        text-transform: uppercase;
+        -webkit-transition: 0.5s;
+        -o-transition: 0.5s;
+        transition: 0.5s;
+        background-size: 200% auto;
+        color: white;
+        -webkit-box-shadow: 0 0 20px #eee;
+        box-shadow: 0 0 20px #eee;
+        border-radius: 10px;
+        /* display        : block; */
+        -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+          0 1px 2px 0 rgba(0, 0, 0, 0.06);
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+          0 1px 2px 0 rgba(0, 0, 0, 0.06);
+        text-decoration: none;
+      }
+      .donate:hover {
+        background-position: right center;
+        /* change the direction of the change here */
+        color: #fff;
+        text-decoration: none;
+      }
+      .ml {
+        margin-left: 0;
+      }
+      @media only screen and (min-width: 700px) {
+        .ml {
+          margin-left: -450px;
+        }
+      }
+      .mr {
+        margin-right: 40px;
+      }
+      @media only screen and (min-width: 1600px) {
+        .mr {
+          margin-right: 200px;
+        }
+      }
+      .start {
+        margin-top: 3rem;
+        /* text-align: center; */
+      }
+      @media only screen and (min-width: 1000px) {
+        .start {
+          margin-top: 0;
+        }
+      }
+      /* Buttons */
+      .button-container {
+        display: flex;
+        /* height: 100vh; */
+        justify-content: center;
+        align-items: center;
+        max-width: 500px;
+        margin: 0 auto;
+        flex-wrap: wrap;
+        margin-top: 10rem;
+      }
+      .btn-red {
+        background-image: linear-gradient(
+          to right,
+          #ff512f 0%,
+          #dd2476 51%,
+          #ff512f 100%
+        );
+        margin: 10px;
+        padding: 15px 45px;
+        text-align: center;
+        text-transform: uppercase;
+        transition: 0.5s;
+        background-size: 200% auto;
+        color: white;
+        box-shadow: 0 0 20px #eee;
+        border-radius: 10px;
+        display: block;
+        border: none;
+      }
+      .btn-orange {
+        background-image: linear-gradient(
+          to right,
+          #ff512f 0%,
+          #f09819 51%,
+          #ff512f 100%
+        );
+        margin: 10px;
+        padding: 15px 45px;
+        text-align: center;
+        text-transform: uppercase;
+        transition: 0.5s;
+        background-size: 200% auto;
+        color: white;
+        box-shadow: 0 0 20px #eee;
+        border-radius: 10px;
+        display: block;
+        border: none;
+      }
+      .btn-blue {
+        background-image: linear-gradient(
+          to right,
+          #1fa2ff 0%,
+          #12d8fa 51%,
+          #1fa2ff 100%
+        );
+        padding: 15px 45px;
+        text-align: center;
+        text-transform: uppercase;
+        transition: 0.5s;
+        background-size: 200% auto;
+        color: white;
+        box-shadow: 0 0 20px #eee;
+        border-radius: 10px;
+        display: block;
+        border: none;
+      }
+      .btn-purple {
+        background-image: linear-gradient(
+          to right,
+          #da22ff 0%,
+          #9733ee 51%,
+          #da22ff 100%
+        );
+        padding: 15px 45px;
+        text-align: center;
+        text-transform: uppercase;
+        transition: 0.5s;
+        background-size: 200% auto;
+        color: white;
+        box-shadow: 0 0 20px #eee;
+        border-radius: 10px;
+        display: block;
+        border: none;
+      }
+      .btn-green {
+        background-image: linear-gradient(
+          to right,
+          #1d976c 0%,
+          #93f9b9 51%,
+          #1d976c 100%
+        );
+        padding: 15px 45px;
+        text-align: center;
+        text-transform: uppercase;
+        transition: 0.5s;
+        background-size: 200% auto;
+        color: white;
+        box-shadow: 0 0 20px #eee;
+        border-radius: 10px;
+        display: block;
+        border: none;
+      }
+      .btn-gray {
+        background-image: linear-gradient(
+          to right,
+          #232526 0%,
+          #414345 51%,
+          #232526 100%
+        );
+        padding: 15px 45px;
+        text-align: center;
+        text-transform: uppercase;
+        transition: 0.5s;
+        background-size: 200% auto;
+        color: white;
+        box-shadow: 0 0 20px #eee;
+        border-radius: 10px;
+        display: block;
+        border: none;
+      }
+      .btn-red:hover,
+      .btn-orange:hover,
+      .btn-blue:hover,
+      .btn-purple:hover,
+      .btn-green:hover,
+      .btn-gray:hover {
+        background-position: right center;
+        color: #fff;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      .uploadDivider {
+        width: 50%;
+        height: 1px;
+        background-color: #c8c8c8;
+        position: relative;
+        margin: 0 auto;
+        margin-top: 30px;
+        margin-bottom: 30px;
+      }
+
+      .pause:hover,
+      .cross:hover {
+        color: #9ca3af !important;
+      }
+
+      .button-clicked {
+        color: #9ca3af!important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-wrapper" style="padding: 25px">
+      <div
+        class="nav-item-logo"
+        style="text-align: center; padding-top: 20px; padding-bottom: 20px"
+      >
+        <a href="./index-again.html">
+          <div class="top__logo">
+            <img
+              style="width: 185px"
+              src="https://i.imgur.com/J3jmDRW.png"
+              alt="logo"
+            />
+          </div>
+        </a>
+      </div>
+      <nav class="navbar">
+        <div class="nav-items">
+          <!-- 1st -->
+          <!-- 2nd -->
+          <div class="nav-item-secondary">
+            <ul>
+              <li><a href="">Home</a></li>
+              <li><a href="">Pricing</a></li>
+              <li><a href="">FAQ</a></li>
+              <li><a href="">Terms</a></li>
+            </ul>
+          </div>
+          <!-- 3rd -->
+          <div class="nav-item-tertiary">
+            <ul>
+              <li><a href="">Login</a></li>
+              <li><a href="">Sign Up</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <style>
+        .navbar a {
+          color: #5cb1f1;
+        }
+        .floatingIcon {
+          color: #fff;
+        }
+      </style>
+      <!-- dropzone -->
+      <div class="dropzone" style="position: relative; border: 8px solid white">
+        <div
+          style="
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+          "
+        >
+          <div
+            class="floatingIcon"
+            style="position: absolute; bottom: 0; left: 10%"
+          >
+            <span
+              class="material-icons"
+              style="
+                animation: icon-up-left 11s ease-in-out infinite;
+                font-size: 22px;
+              "
+              >movie</span
+            >
+          </div>
+          <div
+            class="floatingIcon hide-small-screen"
+            style="position: absolute; bottom: 0; left: 20%"
+          >
+            <span
+              class="material-icons"
+              style="
+                animation: icon-up 5s ease-in-out infinite;
+                font-size: 37px;
+              "
+              >folder</span
+            >
+          </div>
+          <div
+            class="floatingIcon"
+            style="position: absolute; bottom: 0; left: 30%"
+          >
+            <span
+              class="material-icons"
+              style="
+                animation: icon-up 9s ease-in-out infinite;
+                font-size: 51px;
+              "
+              >photo</span
+            >
+          </div>
+          <div
+            class="floatingIcon hide-small-screen"
+            style="position: absolute; bottom: 0; left: 40%"
+          >
+            <span
+              class="material-icons"
+              style="
+                animation: icon-up-left 9s ease-in-out infinite;
+                font-size: 42px;
+              "
+              >inventory_2</span
+            >
+          </div>
+          <div
+            class="floatingIcon"
+            style="position: absolute; bottom: 0; left: 50%"
+          >
+            <span
+              class="material-icons"
+              style="
+                animation: icon-up 7s ease-in-out infinite;
+                font-size: 30px;
+              "
+              >markunread</span
+            >
+          </div>
+          <div
+            class="floatingIcon hide-small-screen"
+            style="position: absolute; bottom: 0; left: 60%"
+          >
+            <span
+              class="material-icons"
+              style="
+                animation: icon-up 4s ease-in-out infinite;
+                font-size: 41px;
+              "
+              >insert_drive_file</span
+            >
+          </div>
+          <div
+            class="floatingIcon"
+            style="position: absolute; bottom: 0; left: 70%"
+          >
+            <span
+              class="material-icons"
+              style="
+                animation: icon-up-left 9s ease-in-out infinite;
+                font-size: 34px;
+              "
+              >wb_cloudy</span
+            >
+          </div>
+          <div
+            class="floatingIcon hide-small-screen"
+            style="position: absolute; bottom: 0; left: 80%"
+          >
+            <span
+              class="material-icons"
+              style="
+                animation: icon-up-left 6s ease-in-out infinite;
+                font-size: 52px;
+              "
+              >picture_as_pdf</span
+            >
+          </div>
+          <div
+            class="floatingIcon"
+            style="position: absolute; bottom: 0; left: 90%"
+          >
+            <span
+              class="material-icons"
+              style="
+                animation: icon-up 10s ease-in-out infinite;
+                font-size: 67px;
+              "
+              >photo_library</span
+            >
+          </div>
+        </div>
+        <div class="upper-container">
+          <!-- 1st -->
+          <div class="image-card animated-icon">
+            <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+            <lottie-player
+              src="https://assets5.lottiefiles.com/packages/lf20_z9e6qbup.json"
+              background="transparent"
+              speed="1"
+              style="width: 50px; height: 50px"
+              loop
+              autoplay
+            ></lottie-player>
+          </div>
+          <!-- 2nd -->
+          <!-- 3rd -->
+          <div class="cloud-card animated-icon">
+            <lottie-player
+              src="https://assets3.lottiefiles.com/packages/lf20_kwi9lo1z.json"
+              background="transparent"
+              speed="1"
+              style="width: 50px; height: 50px"
+              loop
+              autoplay
+            ></lottie-player>
+          </div>
+        </div>
+        <div class="lower-container">
+          <div class="music-card animated-icon">
+            <lottie-player
+              src="https://assets3.lottiefiles.com/packages/lf20_qrrr2ybu.json"
+              background="transparent"
+              speed="1"
+              style="width: 50px; height: 50px"
+              loop
+              autoplay
+            ></lottie-player>
+          </div>
+          <div
+            style="position: relative; z-index: 2"
+            class="drop-main margin-center"
+          >
+            <div class="big-header-container margin-center">
+              <div class="big-header">
+                <span class="hero-header">Secure, fast and easy</span>
+                <span>file transfers</span>
+              </div>
+              <p class="big-header-para">
+                - Upload a file below to get started -
+              </p>
+              <span
+                class="material-icons"
+                style="animation: float-no-shadow 2s ease-in-out infinite"
+                >keyboard_arrow_down</span
+              >
+            </div>
+          </div>
+          <div class="password-card animated-icon">
+            <lottie-player
+              src="https://assets2.lottiefiles.com/packages/lf20_iojr5dnw.json"
+              background="transparent"
+              speed="1"
+              style="width: 50px; height: 50px"
+              autoplay
+            ></lottie-player>
+          </div>
+        </div>
+      </div>
+      <div
+        class="drop-area"
+        style="max-width: 600px; margin: 0 auto; transform: translatey(-140px)"
+      >
+        <div class="border" style="text-align: center">
+          <div
+            class="drop-instructions"
+            style="padding-bottom: 10px; color: #4c9ca2"
+          >
+            Drag & Drop files here to upload
+          </div>
+          <button class="browseButton">Browse Files</button>
+          <style>
+            .browseButton {
+              padding: 15px;
+              background-color: white;
+              border: 1px solid #e3e3e3;
+              border-radius: 10px;
+              transition: background-color 1.5s ease;
+            }
+            .browseButton:hover {
+              background-color: #e3e3e3;
+            }
+          </style>
+        </div>
+        <!-- Files -->
+        <div class="fileContainer">
+          <h2 style="text-align: center; color: grey; padding: 30px">
+            <span class="material-icons" style="vertical-align: middle"
+              >queue</span
+            >
+            Your uploads
+          </h2>
+          <!-- Finished -->
+          <div class="afterUpload-wrapper">
+            <div class="preview-file-header">
+              <img src="./img/new-file-icon.svg" alt="" />
+              <div>
+                <h3>
+                  <span class="file-title">RedTech_Modern</span>
+                  <span class="light">.zip</span>
+                </h3>
+                <span class="light">53MB</span>
+                <span class="dot">.</span>
+                <span class="light">ZIP</span>
+              </div>
+            </div>
+
+            <div
+              style="
+                width: 50%;
+                height: 1px;
+                background-color: #c8c8c8;
+                position: relative;
+                margin: 0 auto;
+                margin-top: 30px;
+                margin-bottom: 30px;
+              "
+            ></div>
+
+            <div class="afterUpload-Container">
+              <div class="left-side">
+                <div class="after-tick-image-container">
+                  <img
+                    class="after-tick-image"
+                    src="./img/afterTick.svg"
+                    alt="tick"
+                  />
+                </div>
+                <div class="success-message">
+                  <h3>You're done!</h3>
+                  <p>
+                    The download has been uploaded, your transfer is available
+                    for 7 days
+                  </p>
+                </div>
+                <h4 class="success-question">
+                  <a href="">Send Another?</a>
+                </h4>
+              </div>
+              <div class="right-side">
+                <div class="validation-link-container">
+                  <p>Your Link</p>
+                  <a href="">https://drop.co/f/682sm5b8he6i167az943</a>
+                </div>
+                <div class="validation-link-container">
+                  <p>Your Edit Link</p>
+                  <a href="">https://drop.co/f/682sm5b8he6i167az943</a>
+                </div>
+                <div class="validation-button-container">
+                  <a href="" class="copy-btn">
+                    <img
+                      class="after-copy-image"
+                      src="./img/after-copy.svg"
+                      alt=""
+                    />
+                    <span>Copy Link</span>
+                  </a>
+                  <a href="" class="qr-btn">
+                    <img
+                      class="after-qr-image"
+                      src="./img/after-qr.svg"
+                      alt=""
+                    />
+                    <span>Show QR Code</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="text-align: center">
+            <span class="material-icons" style="font-size: 54px; color: #d1d5db"
+              >more_vert</span
+            >
+          </div>
+
+          <!-- Progress -->
+          <div class="progress-wrapper">
+            <div class="progress-container">
+              <div class="pause-icon">
+                <button class="pause-btn" style="border: 0; background: none">
+                  <span
+                    class="material-icons pause"
+                    style="font-size: 54px; color: #d1d5db"
+                    >play_circle_filled</span
+                  >
+                </button>
+              </div>
+              <div class="c100 p30 big">
+                <span>30%</span>
+                <p>5.6 mb/s</p>
+                <!-- <p class="speed">5.6 mb/s</p> -->
+                <div class="slice">
+                  <div class="bar"></div>
+                  <div class="fill"></div>
+                </div>
+              </div>
+              <div class="cross-icon">
+                <button style="border: 0; background: none">
+                  <span
+                    class="material-icons cross"
+                    style="font-size: 54px; color: #d1d5db"
+                    >cancel</span
+                  >
+                </button>
+              </div>
+            </div>
+            <p class="my-file-title">
+              <span class="file-name">RedTech Modern Island House</span>
+              <span class="light">.zip</span>
+            </p>
+          </div>
+
+          <div style="text-align: center">
+            <span class="material-icons" style="font-size: 54px; color: #d1d5db"
+              >more_vert</span
+            >
+          </div>
+
+          <!-- Completed -->
+          <div class="preview-container">
+            <div class="preview-file-header">
+              <img src="./img/new-file-icon.svg" alt="" />
+              <div>
+                <h3>
+                  <span class="file-title">RedTech_Modern</span>
+                  <span class="light">.zip</span>
+                </h3>
+                <span class="light">53MB</span>
+                <span class="dot">.</span>
+                <span class="light">ZIP</span>
+              </div>
+            </div>
+            <!-- horizontal line -->
+            <!-- <hr /> -->
+            <div class="password-container">
+              <span class="material-icons lock">
+                <!-- <img src="./img/new-pass2.svg" alt=""> -->
+                https
+              </span>
+              <p>Password</p>
+              <input
+                class="password-text"
+                type="password"
+                placeholder="*******"
+              />
+            </div>
+            <div class="expiry-container">
+              <span class="material-icons expired"> schedule </span>
+              <p>Expired After</p>
+              <div class="expiry-select-one">
+                <select name="date" id="date" class="custom-select">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                </select>
+              </div>
+              <span class="or">or</span>
+              <div class="expiry-select-two">
+                <select name="download" id="download" class="custom-select">
+                  <option value="1">10x</option>
+                  <option value="2">20x</option>
+                  <option value="3">30x</option>
+                  <option value="4">40x</option>
+                  <option value="5">50x</option>
+                  <option value="6">60x</option>
+                  <option value="7">70x</option>
+                </select>
+              </div>
+            </div>
+            <button class="upload-btn btn-blue">Upload This file</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- svg wave before footer -->
+    <div class="wave">
+      <svg id="svg" viewBox="0 0 1440 400" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="gradient">
+            <stop offset="5%" stop-color="#edfcfd"></stop>
+            <stop offset="95%" stop-color="#e4ebec"></stop>
+          </linearGradient>
+        </defs>
+        <path
+          d="M 0,400 C 0,400 0,200 0,200 C 199.86666666666667,226.8 399.73333333333335,253.6 559,240 C 718.2666666666667,226.4 836.9333333333334,172.4 977,159 C 1117.0666666666666,145.6 1278.5333333333333,172.8 1440,200 C 1440,200 1440,400 1440,400 Z"
+          stroke="none"
+          stroke-width="0"
+          fill="url(#gradient)"
+          class="transition-all duration-300 ease-in-out delay-150"
+          transform="rotate(-180 720 200)"
+        ></path>
+      </svg>
+    </div>
+    <!-- footer -->
+    <div class="footer-container">
+      <div class="footer-item">
+        <h4 class="footer-title">SUPPORT ME</h4>
+        <p class="footer-para">
+          If you find this service useful for checking DNS propagation, please
+          consider donating to help pay hosting costs and keeping the site up to
+          date.
+        </p>
+        <a class="donate" href="">Donate via Paypal</a>
+      </div>
+      <ul class="footer-item ml mr">
+        <li class="footer-list-item footer-title start">DNS TOOLS</li>
+        <li class="footer-list-item">DNS Checker</li>
+        <li class="footer-list-item">
+          <a href="./dns-lookup.html">DNS Lookup</a>
+        </li>
+        <li class="footer-list-item">What's My IP Address</li>
+        <li class="footer-list-item footer-title">DNS GUIDES</li>
+        <li class="footer-list-item">DNS Security</li>
+        <li class="footer-list-item">Flush DNS</li>
+        <li class="footer-list-item">Hosts File</li>
+      </ul>
+      <ul class="footer-item mr">
+        <li class="footer-list-item footer-title">DNS LOOKUP</li>
+        <li class="footer-list-item">A Record Lookup</li>
+        <li class="footer-list-item">AAAA Record Lookup</li>
+        <li class="footer-list-item">CAA Record Lookup</li>
+        <li class="footer-list-item">CNAME Record Lookup</li>
+        <li class="footer-list-item">MX Record Lookup</li>
+        <li class="footer-list-item">NS Record Lookup</li>
+        <li class="footer-list-item">PTR Record Lookup</li>
+        <li class="footer-list-item">SOA Record Lookup</li>
+        <li class="footer-list-item">SRV Record Lookup</li>
+        <li class="footer-list-item">TXT Record Lookup</li>
+      </ul>
+      <ul class="footer-item mr">
+        <li class="footer-list-item footer-title">ARTICLES & BLOG</li>
+        <li class="footer-list-item">
+          <a href="./articles.html">DNS Articles</a>
+        </li>
+        <li class="footer-list-item">Development Blog</li>
+        <li class="footer-list-item footer-title">DNS SERVERS</li>
+        <li class="footer-list-item">
+          <a href="./global.html">Global Dns Servers</a>
+        </li>
+        <li class="footer-list-item">Australian DNS Servers</li>
+        <li class="footer-list-item">France DNS Servers</li>
+        <li class="footer-list-item">New Zealand DNS Servers</li>
+        <li class="footer-list-item">United Kingdom DNS Servers</li>
+        <li class="footer-list-item">United States DNS Servers</li>
+      </ul>
+      <ul class="footer-item mr">
+        <li class="footer-list-item footer-title">Contact</li>
+        <li class="footer-list-item">Email: info@dns.io</li>
+        <li class="footer-list-item">Twitter: @whatsmydns</li>
+        <li class="footer-list-item footer-title">Legal</li>
+        <li class="footer-list-item">Privacy Policy</li>
+      </ul>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="./index-two.js"></script>
+  </body>
+</html>

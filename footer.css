@@ -1,0 +1,236 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+@media only screen and (max-width: 78.15em) {
+  html {
+    font-size: 50%;
+  }
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, segoe ui, Roboto,
+    helvetica neue, Arial, noto sans, sans-serif, apple color emoji,
+    segoe ui emoji, segoe ui symbol, noto color emoji !important;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #615551;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: calc(100vh - 2 * 4vw);
+  position: relative;
+  overflow-x: hidden;
+  background-color: #fff;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+/* wave */
+.wave {
+  /* margin-top: -130px; */
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+  position: relative;
+  z-index: -1;
+}
+
+.wave svg {
+  /* height: 1000px; */
+  /* margin-bottom: 200rem; */
+}
+
+
+@media only screen and (min-width: 1000px) {
+  .wave {
+    /* margin-top: -350.9px !important; */
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  .wave {
+    /* margin-top: -450.6px !important; */
+  }
+}
+
+.footer-container {
+  margin-top: -15rem;
+
+  font-size: 1.8rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  background-color: #7f00ff;
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(#7f00ff),
+    to(#e100ff)
+  );
+  background-image: -o-linear-gradient(left, #7f00ff, #e100ff);
+  background-image: linear-gradient(to right, #7f00ff, #e100ff);
+  color: #fff;
+  padding: 3rem;
+}
+
+.footer-item {
+  list-style-type: none;
+}
+
+.footer-para {
+  font-size: 1.6rem;
+  width: 40%;
+  line-height: 2;
+  margin-bottom: 2rem;
+}
+
+.footer-title {
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 600;
+  /* text-align: center; */
+}
+
+.footer-title:hover {
+  text-decoration: none !important;
+}
+
+@media only screen and (min-width: 700px) {
+  .footer-container {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    font-size: 1.3rem;
+    text-align: left;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  .footer-para {
+    font-size: 1.4rem;
+    width: 30%;
+  }
+}
+
+@media only screen and (min-width: 1300px) {
+  .footer-title {
+    font-size: 1.5rem;
+    text-align: left;
+  }
+}
+
+.footer-list-item {
+  line-height: 2;
+}
+
+.footer-list-item:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.donate {
+  background-color: #232526;
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(#232526),
+    color-stop(51%, #414345),
+    to(#232526)
+  );
+  background-image: -o-linear-gradient(
+    left,
+    #232526 0%,
+    #414345 51%,
+    #232526 100%
+  );
+  background-image: linear-gradient(
+    to right,
+    #232526 0%,
+    #414345 51%,
+    #232526 100%
+  );
+}
+
+.donate {
+  font-style: italic;
+  padding: 1rem 2rem;
+  text-align: center;
+  text-transform: uppercase;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  -webkit-box-shadow: 0 0 20px #eee;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  /* display        : block; */
+  -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+    0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  text-decoration: none;
+}
+
+.donate:hover {
+  background-position: right center;
+  /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+.ml {
+  margin-left: 0;
+}
+
+@media only screen and (min-width: 700px) {
+  .ml {
+    margin-left: -450px;
+  }
+}
+
+.mr {
+  margin-right: 40px;
+}
+
+@media only screen and (min-width: 1600px) {
+  .mr {
+    margin-right: 200px;
+  }
+}
+
+.start {
+  margin-top: 3rem;
+  /* text-align: center; */
+}
+
+@media only screen and (min-width: 1000px) {
+  .start {
+    margin-top: 0;
+  }
+}

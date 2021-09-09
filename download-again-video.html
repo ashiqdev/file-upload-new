@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Download-Again</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="download.css" />
+    <style>
+      * {
+        font-family: 'Open Sans', sans-serif;
+      }
+
+      /* body {
+        background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+        background-size: 400% 400%;
+        animation: gradient 30s ease infinite;
+      } */
+
+      /* @keyframes gradient {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      } */
+    </style>
+  </head>
+  <body>
+    <header class="top">
+      <a href="./index.html">
+        <div class="top__logo">
+          <img src="./img/logo.svg" alt="logo" />
+        </div>
+      </a>
+
+      <ul class="menu-items">
+        <li class="menu-item"><a href="">Menu1</a></li>
+        <li class="menu-item"><a href="">Menu2</a></li>
+        <li class="menu-item"><a href="">Menu3</a></li>
+        <li class="menu-item last"><a href="">Menu4</a></li>
+      </ul>
+    </header>
+
+    <!-- card in the middle -->
+
+    <div class="download-container">
+      <div class="">
+        <div class="grand-upper-wrapper">
+          <div class="upper-wrapper">
+            <div class="upper-container" style="border-top-left-radius: 10px">
+              <div class="download-box">
+                <div class="first-part">
+                  <div class="file-name-container">
+                    <span style="vertical-align: middle" class="material-icons"
+                      >description</span
+                    >
+                    <h3 class="file-name">DSCN0567.JPG</h3>
+                  </div>
+
+                  <div class="informations-wrapper" style="max-width: 400px">
+                    <div class="informations right-margin">
+                      <div class="file-info-container">
+                        <div style="float: left">
+                          <div class="file-infos">
+                            <span
+                              style="vertical-align: middle"
+                              class="material-icons"
+                              >save</span
+                            >
+                          </div>
+                        </div>
+                        <div style="float: left; padding-left: 10px">
+                          <h3>Size</h3>
+                          <p>2.42 MB</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="informations upper-space right-margin">
+                      <div class="file-info-container">
+                        <div style="float: left">
+                          <div class="file-infos">
+                            <span
+                              style="vertical-align: middle"
+                              class="material-icons"
+                              >event</span
+                            >
+                          </div>
+                        </div>
+                        <div style="float: left; padding-left: 10px">
+                          <h3>Uploaded</h3>
+                          <p>2 Minutes Ago</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="informations upper-space margin-left">
+                      <div class="file-info-container">
+                        <div style="float: left">
+                          <div class="file-infos">
+                            <span
+                              style="vertical-align: middle"
+                              class="material-icons"
+                              >source</span
+                            >
+                          </div>
+                        </div>
+                        <div style="padding-left: 10px; margin-left: 30px">
+                          <h3>File Type</h3>
+                          <p>Other</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="informations upper-space">
+                      <div class="file-info-container">
+                        <div style="float: left">
+                          <div class="file-infos">
+                            <span
+                              style="vertical-align: middle"
+                              class="material-icons"
+                              >fullscreen</span
+                            >
+                          </div>
+                        </div>
+                        <div style="float: left; padding-left: 10px">
+                          <h3>Resolution</h3>
+                          <p>1920 x 1080</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="informations upper-space right-margin">
+                      <div class="file-info-container">
+                        <div style="float: left">
+                          <div class="file-infos">
+                            <span
+                              style="vertical-align: middle"
+                              class="material-icons"
+                              >share</span
+                            >
+                          </div>
+                        </div>
+                        <div style="float: left; padding-left: 10px">
+                          <h3>Share</h3>
+                          <p>T|F|G</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="clipboard">
+                <input
+                  class="copy-input"
+                  value="https://www.test.com"
+                  id="copyClipboard"
+                  readonly
+                />
+                <button class="copy-btn" id="copyButton" onclick="copy()">
+                  <i class="far fa-copy"></i>
+                </button>
+              </div>
+            </div>
+            <div class="button-container">
+              <div class="second-part">
+                <button class="button down-button">
+                  <p>
+                    <span style="vertical-align: middle" class="material-icons"
+                      >cloud_download</span
+                    >
+                    Download
+                  </p>
+                </button>
+                <div style="display: none" class="dropbox">
+                  <img src="./img/dropbox.svg" alt="" />
+                  <a>Save to Dropbox</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="content-container">
+          <h3 class="image-card-heading">
+            <span class="material-icons chevron">keyboard_arrow_down</span>
+          </h3>
+          <video height="" width="100%" controls>
+            <source
+              src="https://www.w3schools.com/html/mov_bbb.mp4"
+              type="video/mp4"
+            />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </div>
+
+    <!-- info section -->
+    <div data-easy-reveal="fade-in-down" class="app-info-container">
+      <div class="info-card">
+        <div class="card-img-container">
+          <div class="anim">
+            <lottie-player
+              src="./drag.json"
+              background="transparent"
+              speed="1"
+              style="width: 100%; height: 100%"
+              autoplay
+              loop
+            ></lottie-player>
+          </div>
+        </div>
+
+        <div class="card-details">
+          <span class="card_name">Drag and Drop Friendly</span>
+          <p class="card_name-para">
+            The online sharing of files should be easy, so all you have to do is
+            drag and drop your files into our file uploader and we’ll create a
+            shareable URL in an instant.
+          </p>
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="card-img-container">
+          <div class="anim">
+            <lottie-player
+              src="./lottieUpload.json"
+              background="transparent"
+              speed="1"
+              style="width: 100%; height: 100%"
+              autoplay
+              loop
+            ></lottie-player>
+          </div>
+        </div>
+
+        <div class="card-details">
+          <span class="card_name">Multiple Uploads</span>
+          <p class="card_name-para">
+            Do you require more than one file upload at a time? No problem, by
+            creating a free account you can upload as many as 30 files at the
+            same time, without delay
+          </p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="card-img-container">
+          <div class="anim">
+            <lottie-player
+              src="./security.json"
+              background="transparent"
+              speed="1"
+              style="width: 100%; height: 100%"
+              autoplay
+              loop
+            ></lottie-player>
+          </div>
+        </div>
+
+        <div class="card-details last-entry">
+          <div class="card_name text-center" style="padding-bottom: 10px">
+            Security
+          </div>
+          <p class="card_name-para">
+            We regularly remove malicious files based on reports that are sent
+            to us, but we strongly recommend that you're cautious and scan file
+            extensions that can be potentially malicious (.dmg, .exe, etc).
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- svg wave before footer -->
+    <div class="wave">
+      <svg
+        id="svg"
+        viewBox="0 0 1440 400"
+        xmlns="http://www.w3.org/2000/svg"
+        class="transition duration-300 ease-in-out delay-150"
+      >
+        <defs>
+          <linearGradient id="gradient">
+            <stop offset="0%" stop-color="#4dcece"></stop>
+            <stop offset="100%" stop-color="#0ca7e3"></stop>
+          </linearGradient>
+        </defs>
+        <path
+          d="M 0,400 C 0,400 0,200 0,200 C 199.86666666666667,226.8 399.73333333333335,253.6 559,240 C 718.2666666666667,226.4 836.9333333333334,172.4 977,159 C 1117.0666666666666,145.6 1278.5333333333333,172.8 1440,200 C 1440,200 1440,400 1440,400 Z"
+          stroke="none"
+          stroke-width="0"
+          fill="url(#gradient)"
+          class="transition-all duration-300 ease-in-out delay-150"
+          transform="rotate(-180 720 200)"
+        ></path>
+      </svg>
+    </div>
+
+    <!-- footer -->
+    <div class="footer-container">
+      <div class="footer-item">
+        <h4 class="footer-title">SUPPORT ME</h4>
+        <p class="footer-para">
+          If you find this service useful for checking DNS propagation, please
+          consider donating to help pay hosting costs and keeping the site up to
+          date.
+        </p>
+
+        <a class="donate" href="">Donate via Paypal</a>
+      </div>
+      <ul class="footer-item ml mr">
+        <li class="footer-list-item footer-title start">DNS TOOLS</li>
+        <li class="footer-list-item">DNS Checker</li>
+        <li class="footer-list-item">
+          <a href="./dns-lookup.html">DNS Lookup</a>
+        </li>
+        <li class="footer-list-item">What's My IP Address</li>
+        <li class="footer-list-item footer-title">DNS GUIDES</li>
+        <li class="footer-list-item">DNS Security</li>
+        <li class="footer-list-item">Flush DNS</li>
+        <li class="footer-list-item">Hosts File</li>
+      </ul>
+
+      <ul class="footer-item mr">
+        <li class="footer-list-item footer-title">DNS LOOKUP</li>
+        <li class="footer-list-item">A Record Lookup</li>
+        <li class="footer-list-item">AAAA Record Lookup</li>
+        <li class="footer-list-item">CAA Record Lookup</li>
+        <li class="footer-list-item">CNAME Record Lookup</li>
+        <li class="footer-list-item">MX Record Lookup</li>
+        <li class="footer-list-item">NS Record Lookup</li>
+        <li class="footer-list-item">PTR Record Lookup</li>
+        <li class="footer-list-item">SOA Record Lookup</li>
+        <li class="footer-list-item">SRV Record Lookup</li>
+        <li class="footer-list-item">TXT Record Lookup</li>
+      </ul>
+
+      <ul class="footer-item mr">
+        <li class="footer-list-item footer-title">ARTICLES & BLOG</li>
+        <li class="footer-list-item">
+          <a href="./articles.html">DNS Articles</a>
+        </li>
+        <li class="footer-list-item">Development Blog</li>
+        <li class="footer-list-item footer-title">DNS SERVERS</li>
+        <li class="footer-list-item">
+          <a href="./global.html">Global Dns Servers</a>
+        </li>
+        <li class="footer-list-item">Australian DNS Servers</li>
+        <li class="footer-list-item">France DNS Servers</li>
+        <li class="footer-list-item">New Zealand DNS Servers</li>
+        <li class="footer-list-item">United Kingdom DNS Servers</li>
+        <li class="footer-list-item">United States DNS Servers</li>
+      </ul>
+
+      <ul class="footer-item mr">
+        <li class="footer-list-item footer-title">Contact</li>
+        <li class="footer-list-item">
+          Email:
+          <a
+            href="/cdn-cgi/l/email-protection"
+            class="__cf_email__"
+            data-cfemail="cfa6a1a9a08faba1bce1a6a0"
+            >[email&#160;protected]</a
+          >
+        </li>
+        <li class="footer-list-item">Twitter: @whatsmydns</li>
+        <li class="footer-list-item footer-title">Legal</li>
+        <li class="footer-list-item">Privacy Policy</li>
+      </ul>
+    </div>
+
+    <script
+      data-cfasync="false"
+      src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
+    ></script>
+
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  </body>
+</html>
